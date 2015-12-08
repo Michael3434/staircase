@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
          :omniauthable
 
 
-  validates :first_name, presence: true, length: {maximum: 50}
 
   has_many :messages
 

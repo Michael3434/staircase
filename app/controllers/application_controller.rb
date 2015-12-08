@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_paramters
-    devise_parameter_sanitizer.for(:sign_up) << :fullname
-    devise_parameter_sanitizer.for(:account_update) << :fullname
+    devise_parameter_sanitizer.for(:sign_up) << :first_name
+    devise_parameter_sanitizer.for(:account_update) << :first_name
   end
 
   def set_messages_unread

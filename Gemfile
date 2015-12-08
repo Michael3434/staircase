@@ -16,6 +16,7 @@ gem 'sass-rails', '>= 3.2'
 gem 'toastr-rails'
 
 gem "figaro"
+gem 'font-awesome-sass'
 
 ruby '2.2.3'
 gem 'rails_12factor', group: :production
