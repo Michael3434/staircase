@@ -1,19 +1,56 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.destroy_all
 
-30.times do |n|
+5.times do
       user = User.new(
-        firstname: Faker::Name.first_name,
-        lastname:  Faker::Name.last_name,
+        first_name: Faker::Name.first_name,
+        last_name:  Faker::Name.last_name,
         email:     Faker::Internet.email,
         password:  "password",
-        phone:     Faker::PhoneNumber.phone_number
+        phone_number:     Faker::PhoneNumber.phone_number,
+        show_phone: false,
+        is_owner: true,
+        is_syndic: false,
+        is_renter: false,
+        is_pm: false
+        )
 
       user.save
+      p "#{user} Created"
+    end
+
+5.times do
+      user = User.new(
+        first_name: Faker::Name.first_name,
+        last_name:  Faker::Name.last_name,
+        email:     Faker::Internet.email,
+        password:  "password",
+        phone_number:     Faker::PhoneNumber.phone_number,
+        show_phone: false,
+        is_owner: false,
+        is_syndic: false,
+        is_renter: true,
+        is_pm: false
+        )
+
+      user.save
+       p "#{user} Created"
+    end
+
+    1.times do
+      user = User.new(
+        first_name: Faker::Name.first_name,
+        last_name:  Faker::Name.last_name,
+        email:     Faker::Internet.email,
+        password:  "password",
+        phone_number:     Faker::PhoneNumber.phone_number,
+        show_phone: false,
+        is_owner: false,
+        is_syndic: true,
+        is_renter: false,
+        is_pm: false
+        )
+
+      user.save
+       p "#{user} Created"
     end
