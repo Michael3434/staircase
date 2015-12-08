@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+
+  get 'pages/home'
+
+  resources :conversations, only: [:index, :create] do
+    resources :messages, only: [:index, :create]
+  end
+
+  root 'pages#home'
+
+  devise_for  :users,
+              path: '',
+              path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profil'},
+              controllers: {omniauth_callbacks: 'omniauth_callbacks'}
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

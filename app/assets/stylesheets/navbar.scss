@@ -1,0 +1,44 @@
+.side-bar {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  background-color: #1E9E5E;
+}
+.nav-title {
+  font-size: 25px;
+   font-family: helvetica;
+    display: block;
+    text-align: center;
+    color: white;
+    margin: 60px 0px;
+}
+
+.nav-bar a {
+    font-family: helvetica;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    margin: 60px 0px;
+}
+
+.address-title {
+  font-style: italic;
+  text-decoration : underline;
+  font-size: 15px;
+}
+
+a:hover {
+  color: #077187;
+}
+
+.nav-bar {
+  display: block;
+}
+
+.link-to-log {
+  color: #077187;
+}
+
+
