@@ -5,17 +5,27 @@
     <div class="row">
       <div class="col-md-12">
       <%= form_for @post, class: "text-center form-horizontal", id: "register_form" do |f| %>
+
           <div class="form-group form-box" id="post-type" >
             <label class="label-message col-sm-4 control-label">Type de message</label>
             <%= f.select :post_type, [["Service","Service"],["Organisation immeuble","Organisation immeuble"],["Événement","Événement"]], prompt: "Select un genre de message (service, organisation...)", class: "form-control input-box" %>
-            <p id="next-type">Next</p>
-            <p id="preview-type">Preview</p>
           </div>
 
-          <div class="form-group form-box hidden" id="post-title">
+          <div class="form-group form-box" id="post-title">
             <label class="label-message col-sm-4 control-label">Title</label>
-            <%= f.text_field :title, placeholder: "Petit coup de main.., cherche une baby-sitter", class: "form-control input-box" %>
+            <%= f.text_field :title, placeholder: "Petit coup de main.., cherche une baby-sitter, évènement", class: "form-control input-box" %>
           </div>
+
+          <div class="form-group form-box" id="post-title">
+            <label class="label-message col-sm-4 control-label">Description</label>
+            <%= f.text_area :content, placeholder: "Je fais une crémaillére lundi prochain.., Une reunion est prévus le ...", class: "form-control input-box" %>
+            <br>
+            <a class="col-sm-4 control-label" id="show-date">Ajouter une date</a>
+            <div class="hidden" id="post-date">
+             <%= f.text_field :date, readonly: 'true', placeholder: 'Start Date', class: "form-control input-box" %>
+             </div>
+          </div>
+
         <% end %>
       </div>
     </div>
@@ -23,16 +33,20 @@
 </div>
 
 <script>
-  $( "#next-type" ).click(function() {
-  $( "#post-title" ).slideDown();
-  $( "#post-title" ).removeClass('hidden');
+  $( "#show-date" ).click(function() {
+  console.log("lol");
+  $( "#post-date" ).slideDown();
+  $( "#post-date" ).removeClass('hidden');
+  });
 
-
-});
   $( "#preview-type" ).click(function() {
   $( "#post-title" ).slideUp();
   $( "#post-title" ).addClass('hidden');
 
 
 });
+
+   $('#post_date').datepicker({
+          dateFormat: 'dd-mm-yy'
+    });
 </script>
