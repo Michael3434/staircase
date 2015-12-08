@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
 
   has_many :messages
+  has_many :posts
 
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first
