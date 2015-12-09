@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :posts
+  resources :apartments
 
   resources :conversations, only: [:index, :create] do
     resources :messages, only: [:index, :create]
