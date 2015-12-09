@@ -38,12 +38,6 @@
             Je refuse de partager mon numéro de téléphone avec mes voisins
           </div>
 
-           <h3>Vie dans l'immeuble</h3>
-          <%= fields_for Building.new do |b| %>
-             <div class="form-group select">
-              <%= b.select :address, [["Bruxelles - 221 Chaussée d'Alsemberg","Bruxelles - 221 Chaussée d'Alsemberg"],["Paris - 12 Rue Jean Richepin","Paris - 12 Rue Jean Richepin"]], id: "building_id", prompt:"Selectionner votre immeuble", class:"form-control" %>
-            </div>
-          <% end %>
 
 
 

@@ -1,0 +1,6 @@
+<h3>Vie dans l'immeuble</h3>
+  <%= form_for @apartment do |b| %>
+     <div class="form-group select">
+      <%= b.select :address, Building.all, class:"form-control" %>
+    </div>
+  <% end %>
