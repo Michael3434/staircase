@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'pages/home'
+  resources :posts
 
   resources :conversations, only: [:index, :create] do
     resources :messages, only: [:index, :create]

@@ -9,7 +9,7 @@
       <%= link_to root_path do %>
       <div class="nav-title">My building<br><span class="address-title">6 rue rivolie</span></div>
       <% end %>
-      <a href="#info"><i class="fa fa-envelope-o"> Ma messagerie</i></a>
+      <a href="<%= new_post_path %>"><i class="fa fa-envelope-o"> Ma messagerie</i></a>
       <a href="<%= edit_user_registration_path %>"><i class="fa fa-user"> Mon profil</i></a>
       <a href="#like"><i class="fa fa-building-o"></i></i> Mon immeuble</a>
       <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "link-to-log" %>
