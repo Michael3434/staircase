@@ -1,2 +1,17 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="row card-form row-margin">
+  <h2 class="form-title">Mon hall d'immeuble</h2>
+  <div class="col-md-8 col-md-offset-2">
+    <% @posts.each do |post| %>
+    <div class="row">
+      <div class="col-md-6">
+        <span>De <%= post.user.first_name %></span><br>
+        <span>Crée le <%= post.message_time %></span> <br>
+        <%= post.title %> <br>
+        <%= post.content %> <br>
+        <%= post.date %> <br>
+      </div>
+    </div>
+
+    <% end %>
+  </div>
+</div>
