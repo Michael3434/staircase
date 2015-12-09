@@ -1,6 +1,8 @@
 
 User.destroy_all
 
+
+
 5.times do
       user = User.new(
         first_name: Faker::Name.first_name,
@@ -54,3 +56,15 @@ User.destroy_all
       user.save
        p "#{user} Created"
     end
+
+    4.times do
+post = Post.new(
+  title: "AG du 18",
+  post_type: "Administration immeuble",
+  content: "Bonjour, nous ferons une AG le 18 pour blablabla",
+  user_id: 5
+)
+post.save
+end
+
+

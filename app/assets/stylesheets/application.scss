@@ -4,12 +4,14 @@
 @import "avatar";
 @import "navbar";
 @import "form";
+@import "index_hall";
 
 body{
-  font-family: 'Didact Gothic', sans-serif;
+  font-family: 'Roboto', 'Didact Gothic', sans-serif;
   color: #5FCF80;
-  background:#105268;
+  background:#F5F8FA;
   font-size:1.2rem;
+  font-weigth: 300;
 }
 
 h1{
@@ -18,4 +20,23 @@ h1{
 
 h2{
   font-weight: 600;
+}
+
+.avatar-small {
+  width: 28px;
+  border: 1px solid white;
+}
+.avatar-medium {
+  width: 48px;
+ border: 1px solid white;
+}
+
+.avatar-large {
+  width: 68px;
+  border: 1px solid white;
+}
+
+.avatar-full {
+  width: 100%;
+  border: 1px solid white;
 }
