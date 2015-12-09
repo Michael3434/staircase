@@ -4,4 +4,8 @@ class RegistrationsController < Devise::RegistrationsController
      edit_user_registration_path(user)
   end
 
+  def after_update_path_for(user)
+
+  end
+
 end
