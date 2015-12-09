@@ -23,6 +23,10 @@ select {
     font-size: 18px;
 }
 
+.row-margin {
+  margin-bottom: 30px;
+}
+
 .message-container {
   padding: 18px 0;
   border-bottom: 1px solid;
@@ -49,6 +53,9 @@ select {
     width: 66%;
 }
 
+#post_content {
+  height: 130px;
+}
 
 #post_date {
   width: 30%;
@@ -81,4 +88,12 @@ select {
 }
 .hidden {
   display: none;
+}
+
+#btn-submit {
+    padding: 5px 10px;
+    color: white;
+    font-size: 20px;
+    border: 0px;
+    background-color: #5FCF80;
 }
