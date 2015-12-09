@@ -11,10 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20151208140458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "apartments", force: :cascade do |t|
+    t.integer  "apartment_floor"
+    t.string   "apartment_ref"
+    t.integer  "user_id"
+    t.integer  "building_id"
+    t.integer  "owner_id"
+    t.integer  "resident_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "apartments", ["building_id"], name: "index_apartments_on_building_id", using: :btree
+  add_index "apartments", ["user_id"], name: "index_apartments_on_user_id", using: :btree
+
+  create_table "buildings", force: :cascade do |t|
+    t.string   "address"
+    t.string   "name"
+    t.integer  "guardian_id"
+    t.integer  "syndic_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
@@ -75,6 +99,8 @@ ActiveRecord::Schema.define(version: 20151208140458) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "apartments", "buildings"
+  add_foreign_key "apartments", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "posts", "users"
