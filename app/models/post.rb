@@ -4,4 +4,8 @@ class Post < ActiveRecord::Base
   def message_time
     created_at.strftime("%v")
   end
+
+  def date_time
+    date.strftime("%v")
+  end
 end

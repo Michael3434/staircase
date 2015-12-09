@@ -11,8 +11,58 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     color: white;
-    background-color: rgba(16, 82, 104, 0.73);
+    background-color: #3AC162;
     padding-bottom: 30px;
     margin-top: 0;
 
 }
+
+.avatar {
+  display: table-cell;
+}
+
+.info-user {
+  display: table-cell;
+}
+
+.span-user {
+  display: table;
+}
+
+
+.all-post {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  max-height: 500px;
+}
+
+.grid {
+max-width: 1200px;
+}
+
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.grid-item {
+    float: left;
+    width: 45%;
+    background-color: #eee;
+    margin: 17px;
+    padding: 0px;
+    box-shadow: 6px 6px 0px #888888;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+        color: white;
+    font-weight: 600;
+
+  }
+
+  .header {
+    background-color: #3AC162;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+

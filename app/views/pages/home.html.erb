@@ -1,17 +1,33 @@
 <div class="row card-form row-margin">
   <h2 class="form-title">Mon hall d'immeuble</h2>
-  <div class="col-md-8 col-md-offset-2">
-    <% @posts.each do |post| %>
+  <div class="col-md-12">
     <div class="row">
-      <div class="col-md-6">
-        <span>De <%= post.user.first_name %></span><br>
-        <span>Crée le <%= post.message_time %></span> <br>
-        <%= post.title %> <br>
-        <%= post.content %> <br>
-        <%= post.date %> <br>
+      <div class="col-md-8">
+        <div class="grid all-post">
+          <% @posts.each do |post| %>
+          <div class="grid-item">
+            <div class="header text-center">
+              <div class="avatar"><%= image_tag "http://lorempixel.com/100/100/people", class: "img-circle avatar-medium" %></div>
+              <div class="info-user">
+                <span class="span-user">De <%= post.user.first_name %></span>
+                <span class="span-user">le <%= post.message_time %></span>
+              </div>
+            </div>
+            <%= post.title %> <br>
+            <%= post.content %> <br>
+            <%= post.date %> <br>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-4 card-calendar">
+        <h2 class="text-center">Calendar</h2>
+        <% @post_calendar.each do |post| %>
+        <%= post.title %>
+        <%= post.date_time %>
+        <hr>
+        <% end %>
       </div>
     </div>
-
-    <% end %>
   </div>
 </div>
