@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   def configure_permitted_paramters
     devise_parameter_sanitizer.for(:sign_up) << :first_name
     devise_parameter_sanitizer.for(:account_update) << :first_name
+    devise_parameter_sanitizer.for(:account_update) << :last_name
   end
 
   def set_messages_unread
@@ -20,6 +21,14 @@ class ApplicationController < ActionController::Base
           @message_unread += 1 if message.opened != true && message.user != current_user
         end
       end
+    end
+  end
+
+  def after_sign_in_path_for(user)
+    if user.try(:first_name) && user.try(:last_name)
+      root_path
+    else
+      edit_user_registration_path(user)
     end
   end
 end
