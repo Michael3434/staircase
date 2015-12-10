@@ -8,7 +8,7 @@ def create
   @post = current_user.posts.build(post_params)
 
   if @post.save
-    redirect_to root_path, notice: "Saved..."
+    redirect_to home_path, notice: "Saved..."
   else
     redirect_to new_post_path, alert: "Error to save..."
   end

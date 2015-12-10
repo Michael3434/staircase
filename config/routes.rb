@@ -2,12 +2,12 @@ Rails.application.routes.draw do
 
   resources :posts
   resources :apartments
-
+  get '/home', to: 'pages#home'
   resources :conversations, only: [:index, :create] do
     resources :messages, only: [:index, :create]
   end
 
-  root 'pages#home'
+  root 'pages#landing'
 
   devise_for  :users,
               path: '',
