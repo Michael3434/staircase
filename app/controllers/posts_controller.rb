@@ -21,14 +21,14 @@ end
 
 def update
   @post = Post.find(params[:id])
-  redirect_to root_path
+  redirect_to home_path
 end
 
 
 def destroy
  @post = Post.find(params[:id])
  @post.destroy
- redirect_to root_path, notice: "Supprimer..."
+ redirect_to home_path, notice: "Supprimer..."
 end
 
 

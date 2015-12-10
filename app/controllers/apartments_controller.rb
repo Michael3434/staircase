@@ -16,9 +16,8 @@ class ApartmentsController < ApplicationController
     @apartment = @building.apartments.build(apartment_params)
     if @apartment.save
       ap_user = current_user.apartment_users.build(apartment: @apartment)
-         raise
       ap_user.save
-      redirect_to root_path, notice: "Saved..."
+      redirect_to home_path, notice: "Saved..."
     else
       redirect_to new_apartment_path, notice: "Not Saved..."
     end
