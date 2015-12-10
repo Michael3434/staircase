@@ -1,11 +1,15 @@
 <h3>Vie dans l'immeuble</h3>
   <%= form_for @apartment do |f| %>
-     <div class="form-group">
-      <%= f.select :building_id, @buildings, class:"form-control" %>
-    </div>
 
-    <div class="form-group">
-    </div>
+  <% @buildings.each_with_index do |building, index| %>
+  <div class="form-group">
+    <% if index = 0 %>
+    <%= f.radio_button :building_id, building, :checked => true %>
+    <% else %>
+    <%= f.radio_button :building_id, building %>
+    <% end %>
+  <% end %>
 
+  </div>
     <%= f.submit "Submit", class: "btn btn-primary" %>
   <% end %>

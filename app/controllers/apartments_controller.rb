@@ -14,12 +14,11 @@ class ApartmentsController < ApplicationController
   end
 
   def create
-    @apartment = Apartment.new(apartment_params)
+
+    @building = Building.where(address: params[:apartment][:building_id]).first
+    @apartment = @building.apartments.build(apartment_params)
 
     if @apartment.save
-      @buidling = Building.where(address: params[:apartment][:building_id])
-      @apartment.building_id = @buidling.first.id
-      @apartment.save
       redirect_to root_path, notice: "Saved..."
     else
       redirect_to new_apartment_path, notice: "Not Saved..."
