@@ -27,7 +27,11 @@
               <p><%= post.content %></p>
               <p><%= post.date %></p>
               </div>
-              <% if current_user && post.user == current_user %><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Supprimez cette annonce ?' } %>
+              <div class="text-center">
+              <% if current_user && post.user == current_user %><%= link_to 'Modifier', edit_post_path(post) %><% end %>
+
+              <% if current_user && post.user == current_user %><%= link_to 'Supprimer', post, method: :delete, data: { confirm: 'Supprimez cette annonce ?' } %>
+              </div>
            <% end %>
           </div>
           <% end %>
