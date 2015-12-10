@@ -15,6 +15,16 @@ def create
 
 end
 
+def edit
+  @post = Post.find(params[:id])
+end
+
+def update
+  @post = Post.find(params[:id])
+  redirect_to root_path
+end
+
+
 def destroy
  @post = Post.find(params[:id])
  @post.destroy
