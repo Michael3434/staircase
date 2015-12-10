@@ -1,0 +1,49 @@
+.building input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]+ label {
+    border: 2px solid transparent;
+}
+
+input[type="radio"]:checked + label {
+    border-color: #568B94;
+}
+
+.floor input[type="radio"] {
+    display: none;
+}
+
+.circle-building {
+    display: inline-block;
+    border-radius: 50%;
+    border: 1px solid;
+    padding: 10px;
+    width: 90px;
+    height: 90px;
+}
+
+.icon-building {
+  margin: calc(50% - 22px) calc(50% - 19px);
+
+}
+
+#title-floor {
+      margin: 30px;
+}
+
+label {
+  padding: 10px;
+}
+
+#floor_number {
+  margin: 0;
+  padding: 0px 15px;
+  font-size: 20px;
+  position: relative;
+    right: 30px;
+}
+
+#reference-flat {
+  margin: 0 auto;
+}

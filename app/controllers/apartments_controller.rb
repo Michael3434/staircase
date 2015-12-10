@@ -6,19 +6,18 @@ class ApartmentsController < ApplicationController
 
   def new
 
-  @buildings = []
-     Building.all.each do |building|
-      @buildings << building.name
-    end
+  @buildings = Building.all
     @apartment = Apartment.new
   end
 
   def create
 
-    @building = Building.where(address: params[:apartment][:building_id]).first
+    @building = Building.find(params[:apartment][:building_id])
     @apartment = @building.apartments.build(apartment_params)
-
     if @apartment.save
+      ap_user = current_user.apartment_users.build(apartment: @apartment)
+         raise
+      ap_user.save
       redirect_to root_path, notice: "Saved..."
     else
       redirect_to new_apartment_path, notice: "Not Saved..."
@@ -29,7 +28,7 @@ class ApartmentsController < ApplicationController
   private
 
   def apartment_params
-    params.require(:apartment).permit(:partment_floor, :apartment_ref, :owner_id, :resident_id)
+    params.require(:apartment).permit(:apartment_floor, :apartment_ref, :owner_id, :resident_id)
   end
 
 end
