@@ -1,2 +1,36 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="row card-form row-margin">
+  <h2 class="form-title">Mon hall d'immeuble</h2>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-2 card-calendar">
+        <h2 class="text-center">Calendar</h2>
+        <% @post_calendar.each do |post| %>
+        <%= post.title %>
+        <%= post.date_time %>
+        <hr>
+        <% end %>
+      </div>
+      <div class="col-md-10">
+        <div class="grid all-post">
+          <% @posts.each do |post| %>
+          <div class="grid-item">
+
+            <div class="header text-center">
+              <div class="avatar"><%= image_tag "http://lorempixel.com/100/100/people", class: "img-circle avatar-medium" %></div>
+              <div class="info-user">
+                <span class="span-user">De <%= post.user.first_name %></span>
+                <span class="span-user">le <%= post.message_time %></span>
+              </div>
+            </div>
+            <div class="content">
+              <h3><%= post.title %></h3>
+              <p><%= post.content %></p>
+              <p><%= post.date %></p>
+              </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

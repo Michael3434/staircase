@@ -14,17 +14,45 @@
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= render 'shared/devisemes' %>
 
+          <h3>Informations personnelles</h3>
+
+
            <div class="form-group">
             <%= f.text_field :first_name, autofocus: true, class: "form-control", placeholder: "First Name" %>
           </div>
 
            <div class="form-group">
-            <%= f.text_field :last_name, autofocus: true, class: "form-control", placeholder: "Last_name" %>
+            <%= f.text_field :last_name, autofocus: true, class: "form-control", placeholder: "Last Name" %>
           </div>
 
           <div class="form-group">
             <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %>
           </div>
+
+           <div class="form-group">
+            <%= f.text_field :phone_number, autofocus: true, class: "form-control", placeholder: "Your Mobile Phone Number" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.check_box :show_phone %>
+            Je refuse de partager mon numéro de téléphone avec mes voisins
+          </div>
+
+
+
+
+
+
+
+            <div class="form-group select">
+              <%= f.select :phone_number, (0..9), id: "building_id", prompt:"Selectionner votre étage", class:"form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_field :phone_number, autofocus: true, class: "form-control", placeholder:"Entrer le numéro (ex: 301) ou la position de votre appartement (ex: 'gauche en sortant de l'ascenceur')" %>
+            </div>
+
+
 
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -39,6 +67,10 @@
             <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm password" %>
           </div>
 
+          <div class="form-group">
+          <%= f.password_field :current_password, placeholder: "we need your current password to confirm your changes", required: true, class: "form-control"%>
+          </div>
+
           <div class="actions">
             <%= f.submit "Save", class: "btn btn-primary" %>
           </div>
@@ -47,5 +79,6 @@
       </div>
     </div>
   </div>
+
 
 

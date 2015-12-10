@@ -1,0 +1,71 @@
+.card-form {
+    border-radius: 5px;
+    border-bottom: 4px solid #E9625B;
+    padding-bottom: 30px;
+}
+
+.form-title {
+    text-align: center;
+    padding-top: 50px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #333333;
+    padding-bottom: 30px;
+    margin-top: 0;
+
+}
+
+.avatar {
+  display: table-cell;
+}
+
+.info-user {
+  display: table-cell;
+}
+
+.span-user {
+  display: table;
+}
+
+
+.all-post {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  max-height: 500px;
+}
+
+.grid {
+max-width: 1200px;
+}
+
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.grid-item {
+        float: left;
+    width: 45%;
+    background-color: #fff;
+    padding: 0px;
+    color: #212121;
+    font-weight: 600;
+    border-radius: 4px;
+    overflow: hidden;
+        margin: 10px;
+            box-shadow: 0 0 5px #DADADA;
+
+    .header {
+      padding: 10px;
+          border-bottom: 1px solid #DDD;
+    }
+
+    .content {
+      padding: 10px;
+    }
+
+  }
+
+
+

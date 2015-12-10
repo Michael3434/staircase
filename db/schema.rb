@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151208153854) do
+
+ActiveRecord::Schema.define(version: 20151209152404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "apartment_users", force: :cascade do |t|
+    t.integer  "apartment_id"
+    t.integer  "user_id"
+    t.string   "status"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "apartment_users", ["apartment_id"], name: "index_apartment_users_on_apartment_id", using: :btree
+  add_index "apartment_users", ["user_id"], name: "index_apartment_users_on_user_id", using: :btree
 
   create_table "apartments", force: :cascade do |t|
     t.integer  "apartment_floor"
@@ -98,6 +110,8 @@ ActiveRecord::Schema.define(version: 20151208153854) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "apartment_users", "apartments"
+  add_foreign_key "apartment_users", "users"
   add_foreign_key "apartments", "buildings"
   add_foreign_key "apartments", "users"
   add_foreign_key "messages", "conversations"
