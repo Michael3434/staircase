@@ -11,11 +11,10 @@ class ApartmentsController < ApplicationController
   end
 
   def create
-
     @building = Building.find(params[:apartment][:building_id])
     @apartment = @building.apartments.build(apartment_params)
     if @apartment.save
-      ap_user = current_user.apartment_users.build(apartment: @apartment)
+      ap_user = current_user.apartment_users.build(apartment: @apartment, status: params[:apartment][:resident_id])
       ap_user.save
       redirect_to home_path, notice: "Saved..."
     else

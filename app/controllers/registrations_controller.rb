@@ -5,7 +5,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def after_update_path_for(user)
-
+    root_path
   end
 
 end
