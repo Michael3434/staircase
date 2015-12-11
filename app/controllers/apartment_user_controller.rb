@@ -1,0 +1,2 @@
+class Apartment_usersController < ApplicationController
+end
