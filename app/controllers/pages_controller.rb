@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :apartment_user?
+
   def home
     @posts = Post.all.reverse
     @post_calendar = []
@@ -8,5 +11,13 @@ class PagesController < ApplicationController
   end
 
   def landing
+  end
+
+  private
+
+  def apartment_user?
+    if current_user.apartment_users.empty?
+      redirect_to new_apartment_path, notice: "Tell us where do you leave"
+    end
   end
 end

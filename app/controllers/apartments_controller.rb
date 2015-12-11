@@ -1,13 +1,21 @@
 class ApartmentsController < ApplicationController
 
-  def create
-
+  def index
+    if current_user.apartment_users.empty?
+      redirect_to new_apartment_path, notice: "You don't have apartment yet :) "
+    else
+      @apartments = current_user.apartment_users
+    end
   end
 
   def new
+    if current_user.apartment_users.empty?
+      @buildings = Building.all
+      @apartment = Apartment.new
+    else
+      redirect_to home_path
+    end
 
-  @buildings = Building.all
-    @apartment = Apartment.new
   end
 
   def create
