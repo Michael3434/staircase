@@ -7,7 +7,6 @@ class UserMailer < ApplicationMailer
   #
   def post(user)
     @user = user
-
-    mail to: "@user.email", subjet: "Bonjour #{user.first_name}"
+    mail to: @user.email, subject: "[StairCaze] Bravo #{@user.first_name} !"
   end
 end
