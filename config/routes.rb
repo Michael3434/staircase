@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :appointments, only: [:new, :create]
   resources :posts
   resources :apartments
   get '/home', to: 'pages#home'
