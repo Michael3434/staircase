@@ -14,8 +14,25 @@ input[type="radio"]:checked + label {
     display: none;
 }
 
+.title-status {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.status input[type="radio"] {
+  display: none;
+}
+
+.status {
+  margin-top: 10px;
+}
+
 #new_apartment {
       margin: 50px;
+}
+
+.hidden {
+  display: none;
 }
 
 .circle-building {

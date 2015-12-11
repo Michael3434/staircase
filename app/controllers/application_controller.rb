@@ -25,10 +25,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(user)
-    if user.try(:first_name) && user.try(:last_name)
-      root_path
-    else
-      edit_user_registration_path(user)
-    end
+    new_apartment_path
   end
 end
