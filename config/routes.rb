@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
 
   resources :posts
-  resources :apartments
+resources :apartments
   get '/home', to: 'pages#home'
   resources :conversations, only: [:index, :create] do
     resources :messages, only: [:index, :create]
   end
+
+  # resources users: do
+  #   resources :apartments
+  # end
 
   root 'pages#landing'
 
