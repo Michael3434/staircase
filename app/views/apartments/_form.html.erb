@@ -1,0 +1,84 @@
+<br><br>
+<h1 class="text-center">Choissisez votre immeuble</h1>
+<br>
+
+  <%= form_for @apartment, :html => {:class => "text-center"} do |f| %>
+
+  <div class="row" id="building">
+  <% @buildings.each do |building| %>
+    <div class="col-md-6 text-center">
+      <div class="building">
+        <%= f.radio_button :building_id, building.id, id: building.name %>
+        <label for="<%= building.name %>">
+          <div class="circle-building" data-floornumber=<%= building.number_floor %>><i class="fa fa-building-o fa-4x icon-building"></i>
+      </div>
+          <h4><%= building.name %></h4>
+        </label>
+        </div>
+      </div>
+    <% end %>
+  </div><hr>
+
+  <div class="row">
+    <div class="col-md-6" id="all-floors"></div>
+    <div class="col-md-6">
+      <div id="reference-flat"></div>
+      <div class="hidden" id="status-user">
+        <br>
+        <h3 class="title-status">Êtes-vous ?</h3>
+        <div class="col-md-6 status text-center">
+          <%= f.radio_button :resident_id, "Locataire", id: "locataire" %>
+        <label for="locataire">
+          <div>Locataire</div>
+          </label>
+        </div>
+        <div class="col-md-6 status">
+          <%= f.radio_button :resident_id, "Propriétaire", id: "propriétaire" %>
+        <label for="propriétaire">
+          <div>Propriétaire</div>
+          </label>
+        </div>
+        </div>
+        </div>
+
+    </div>
+
+  <%= f.submit "Submit", class: "btn btn-primary submit-form" %>
+  <% end %>
+
+<script>
+
+$( ".building label" ).click(function() {
+  var data = $('.circle-building').data("floornumber");
+  $('.floor-form').remove();
+  $('#title-floor').remove();
+  $('#all-floors').append("<h1 id='title-floor'>Votre Etage</h1>")
+  for(var i = 0; i <= data; i++) {
+    if (i % 2 == 0 || i == 0) {
+  var floor = $('#all-floors').append('<div class="floor-form col-md-2 col-md-offset-5 floor"><input id="' + i +'" type="radio" value="' + i +'" name="apartment[apartment_floor]"><label for="' + i +'" id="floor_number">' + i + '</label></div>').hide();
+  }
+  else {
+    $('#all-floors').append('<div class="floor-form col-md-2 floor"><input id="' + i +'" type="radio" value="' + i +'"name="apartment[apartment_floor]"><label for="' + i +'" id="floor_number">' + i + '</label></div>');
+  }
+}
+
+floor.slideDown();
+floor.show();
+
+  $(".floor-form label").click(function() {
+    $('.reference-form').remove();
+    $('#title-reference').remove();
+    $('#reference-flat').append("<h1 id='title-reference'>Référence de votre logement</h1>")
+    var infoFlat = $('#reference-flat').append('<div class="reference-form col-md-8 col-md-offset-2"><input placeholder="Ascenseur gauche, Numero 303 etc..." class="form-control input-box" type="text" name="apartment[apartment_ref]" id="reference-flat"></div>').hide();
+    infoFlat.slideDown();
+    infoFlat.show();
+});
+
+ $('#reference-flat').bind('input', function() {
+    $("#status-user").removeClass('hidden');
+});
+
+});
+
+
+</script>

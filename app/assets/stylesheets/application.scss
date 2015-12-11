@@ -6,6 +6,7 @@
 @import "form";
 @import "index_hall";
 @import "form_apartment";
+@import "dash-apartment";
 
 body{
   font-family: 'Roboto', 'Didact Gothic', sans-serif;
@@ -21,6 +22,10 @@ h1{
 
 h2{
   font-weight: 600;
+}
+
+.navbar {
+  position: relative;
 }
 
 .avatar-small {
