@@ -5,7 +5,7 @@
   <%= form_for @apartment, :html => {:class => "text-center"} do |f| %>
 
   <div class="row" id="building">
-  <% @buildings.each do |building| %>
+  <% @buildings.each_with_index do |building, index| %>
     <div class="col-md-6 text-center">
       <div class="building">
         <%= f.radio_button :building_id, building.id, id: building.name %>
@@ -14,6 +14,11 @@
       </div>
           <h4><%= building.name %></h4>
         </label>
+        <div class="row">
+            <div class="col-md-12">
+              <%= f.text_field :owner_id, id: "password#{index}", class: "form-control hidden password", :data => { :id => 'password#{index}', password: building.building_password}, placeholder: "Mot de passe.." %>
+            </div>
+          </div>
         </div>
       </div>
     <% end %>
@@ -49,6 +54,8 @@
 <script>
 
 $( ".building label" ).click(function() {
+  var id = $('.password').data("id");
+  $('#{id}').removeClass('hidden')
   var data = $('.circle-building').data("floornumber");
   $('.floor-form').remove();
   $('#title-floor').remove();
@@ -80,5 +87,10 @@ floor.show();
 
 });
 
+
+
+$('.submit-form').attr("disabled", true);
+var data = $('#password').data("password");
+console.log(data);
 
 </script>

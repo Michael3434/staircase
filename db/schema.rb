@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210153017) do
+ActiveRecord::Schema.define(version: 20151211182645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,9 +46,10 @@ ActiveRecord::Schema.define(version: 20151210153017) do
     t.string   "name"
     t.integer  "guardian_id"
     t.integer  "syndic_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "number_floor"
+    t.string   "building_password"
   end
 
   create_table "conversations", force: :cascade do |t|
