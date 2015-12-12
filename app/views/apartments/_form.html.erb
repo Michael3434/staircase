@@ -32,14 +32,14 @@
       <div class="hidden" id="status-user">
         <br>
         <h3 class="title-status">Êtes-vous ?</h3>
-        <div class="col-md-6 status text-center">
-          <%= f.radio_button :resident_id, "Locataire", id: "locataire" %>
+        <div class="col-md-4 status text-center">
+          <%= f.radio_button :resident_id, "locataire", id: "locataire" %>
         <label for="locataire">
           <div>Locataire</div>
           </label>
         </div>
-        <div class="col-md-6 status">
-          <%= f.radio_button :resident_id, "Propriétaire", id: "propriétaire" %>
+        <div class="col-md-4 status">
+          <%= f.radio_button :resident_id, "propriétaire", id: "propriétaire" %>
         <label for="propriétaire">
           <div>Propriétaire</div>
           </label>
@@ -83,7 +83,6 @@ function button(info_button){
   $(".button").removeClass('verify')
   $("." + $(info_button).data('id')).addClass('verify');
   $(".button").removeClass('verify')
-  $('.submit-form').attr("disabled", false);
   etage();
  }
 
@@ -126,6 +125,9 @@ floor.show();
  $('#reference-flat').bind('input', function() {
     $("#status-user").removeClass('hidden');
 });
+
+$("#status-user").click(function())
+
 
 
 }
