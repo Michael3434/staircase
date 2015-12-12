@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row text-center sidebar-list">
+        <div class="col-md-6">
+          <%= link_to "Mon profil", edit_user_registration_path, class: "sidebar-link"  %>
+        </div>
+        <div class="col-md-6">
+          <%= link_to (current_user.apartment_users.length > 1 ? "Mes apartment" : "Mon apartment"), apartments_path, class: "sidebar-link active " %>
+        </div>
+      </div>
+    </div>
+    <div class="panel body">
+      <% current_user.apartment_users.each do |apartment| %>
+      <div class="row dash-apartment">
+        <div class="col-md-1">
+          <i class="fa fa-building-o fa-2x"></i>
+        </div>
+        <div class="col-md-3">
+          <span> <%= apartment.apartment.building.address %> </span>
+        </div>
+         <div class="col-md-2">
+          <span> <%= apartment.status %> </span>
+        </div>
+        <div class="col-md-2">
+          Etage : <span> <%= apartment.apartment.apartment_floor %> </span>
+        </div>
+        <div class="col-md-3">
+          Votre appartement : <span> <%= apartment.apartment.apartment_ref %> </span>
+        </div>
+
+        <div class="col-md-1">
+          <%= link_to "#" do %>
+          <i class="fa fa-pencil-square-o fa-lg"></i>
+          <% end %>
+          <%= link_to apartment_path(apartment), method: :delete, data: { confirm: 'Supprimez cette apartment ?' } do %>
+          <i class="fa fa-times fa-lg"></i>
+          <% end %>
+        </div>
+
+         </div>
+      <% end %>
+      </div>
+      <%= link_to new_apartment_path(create: "yes") do %>
+      <i class="fa fa-plus fa-lg pull-right icon-plus"></i>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

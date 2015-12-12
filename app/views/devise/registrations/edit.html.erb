@@ -1,16 +1,18 @@
 <div class="row">
-  <div class="col-md-3">
-    <ul class="sidebar-list">
-      <li class="sidebar-item">
-        <%= link_to "Edit Profil", edit_user_registration_path, class: "sidebar-link active" %></li>
-    </ul>
-    </br>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row text-center sidebar-list">
+        <div class="col-md-6">
+          <%= link_to "Mon profil", edit_user_registration_path, class: "sidebar-link active"  %>
+        </div>
+        <div class="col-md-6">
+          <%= link_to (current_user.apartment_users.length > 1 ? "Mes apartment" : "Mon apartment"), apartments_path, class: "sidebar-link" %>
+        </div>
+      </div>
     </div>
-
-    <div class="col-md-9 text-center">
-      <div class="panel panel-default">
-        <div class="panel-heading">Your Profile</div>
-        <div class="panel-body">
+    <div class="panel body dash-apartment">
+      <div class="row">
+    <div class="col-md-12 text-center">
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= render 'shared/devisemes' %>
 
@@ -38,12 +40,6 @@
             Je refuse de partager mon numéro de téléphone avec mes voisins
           </div>
 
-
-
-
-
-
-
             <div class="form-group select">
               <%= f.select :phone_number, (0..9), id: "building_id", prompt:"Selectionner votre étage", class:"form-control" %>
             </div>
@@ -51,9 +47,6 @@
             <div class="form-group">
               <%= f.text_field :phone_number, autofocus: true, class: "form-control", placeholder:"Entrer le numéro (ex: 301) ou la position de votre appartement (ex: 'gauche en sortant de l'ascenceur')" %>
             </div>
-
-
-
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -76,9 +69,9 @@
           </div>
           <% end %>
         </div>
+  </div>
+
       </div>
     </div>
   </div>
-
-
-
+</div>

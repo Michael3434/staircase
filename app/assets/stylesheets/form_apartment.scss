@@ -69,4 +69,18 @@ label {
   margin: 0 auto;
 }
 
+.verify {
+  border: 2px solid #329F5B;
+}
+
+.not-verify {
+  border: 2px solid #D34E24;
+}
+
+.password-text {
+    color: #568B94;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 

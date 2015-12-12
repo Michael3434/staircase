@@ -19,15 +19,20 @@
           <li><%= link_to "Sign Up", new_user_registration_path %></li>
         <% else %>
            <li>
-            <%= link_to new_post_path do %>
-            <i class="fa fa-envelope-o fa-lg">&nbsp;Messages</i>
+            <%= link_to apartments_path do %>
+            <i class="fa fa-tachometer fa-lg">&nbsp;Tableau de bord</i>
           <% end %>
             </li>
-      <li>
-        <%= link_to home_path do %>
-        <i class="fa fa-building-o fa-lg"></i>&nbsp;Hall
-        <% end %>
-      </li>
+            <li>
+            <%= link_to home_path do %>
+            <i class="fa fa-building-o fa-lg"></i>&nbsp;Hall
+            <% end %>
+          </li>
+            <li>
+              <%= link_to home_path do %>
+              <i class="fa fa-building-o fa-lg"></i>&nbsp;Hall
+              <% end %>
+            </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
             <%= image_tag "http://lorempixel.com/100/100/people", class: "img-circle avatar-small" %>&nbsp<%= current_user.first_name %><span class="caret"></span></a>
