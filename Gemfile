@@ -18,6 +18,7 @@ gem 'faker'
 
 gem "figaro"
 gem 'font-awesome-sass'
+gem 'twilio-ruby', '~> 4.2.1'
 
 ruby '2.2.3'
 gem 'rails_12factor', group: :production
@@ -43,6 +44,7 @@ group :development, :test do
   gem 'byebug'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'letter_opener'
 end
 
 group :development do
