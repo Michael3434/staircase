@@ -8,17 +8,18 @@
   <% @buildings.each_with_index do |building, index| %>
     <div class="col-md-6 text-center">
       <div class="building">
-        <%= f.radio_button :building_id, building.id, id: building.name %>
+        <%= f.radio_button :building_id, building.id, id: building.name, :onclick => "test(this);", :data => { :id => "password#{index}", password: building.building_password } %>
         <label for="<%= building.name %>">
           <div class="circle-building" data-floornumber=<%= building.number_floor %>><i class="fa fa-building-o fa-4x icon-building"></i>
       </div>
           <h4><%= building.name %></h4>
         </label>
         <div class="row">
-            <div class="col-md-12">
-              <%= f.text_field :owner_id, id: "password#{index}", class: "form-control hidden password", :data => { :id => 'password#{index}', password: building.building_password}, placeholder: "Mot de passe.." %>
-            </div>
+          <div class="col-md-12">
+            <%= f.text_field :owner_id, id: "password#{index}", class: "form-control password#{index} hidden password", :data => { :id => "password#{index}", password: building.building_password}, placeholder: "Mot de passe.." %>
+            <label onclick="button(this);" class="hidden password<%= index %> button" id="button<%= index %>" data-id="password<%= index %>" data-password="<%= building.building_password %>">Verifier</label>
           </div>
+        </div>
         </div>
       </div>
     <% end %>
@@ -46,6 +47,8 @@
         </div>
         </div>
 
+
+
     </div>
 
   <%= f.submit "Submit", class: "btn btn-primary submit-form" %>
@@ -53,9 +56,50 @@
 
 <script>
 
-$( ".building label" ).click(function() {
-  var id = $('.password').data("id");
-  $('#{id}').removeClass('hidden')
+function test(d){
+  $(".button").addClass('hidden');
+  $(".password").addClass('hidden');
+  $("#" + $(d).data('id')).removeClass('hidden');
+  $("." + $(d).data('id')).removeClass('hidden');
+  stateModule.test1(d)
+}
+
+function button(info_button){
+ var input = $("." + $(info_button).data('id')).val();
+ if (input == $(info_button).data('password')) {
+  $("." + $(info_button).data('id')).addClass('verify');
+  etage();
+ }
+
+ else {
+  $("." + $(info_button).data('id')).addClass('not-verify');
+ }
+
+ }
+
+var stateModule = (function(){
+  var self = {};
+  var password;
+
+
+  self.test1 = function(d){
+    var password = $(d).data('password')
+    console.log(password);
+  }
+
+  self.button = function(button){
+    console.log(password);
+
+  }
+    // function button(info_button){
+    //  console.log(info_button)
+    // }
+    return self;
+
+  }());
+
+
+function etage() {
   var data = $('.circle-building').data("floornumber");
   $('.floor-form').remove();
   $('#title-floor').remove();
@@ -63,7 +107,7 @@ $( ".building label" ).click(function() {
   for(var i = 0; i <= data; i++) {
     if (i % 2 == 0 || i == 0) {
   var floor = $('#all-floors').append('<div class="floor-form col-md-2 col-md-offset-5 floor"><input id="' + i +'" type="radio" value="' + i +'" name="apartment[apartment_floor]"><label for="' + i +'" id="floor_number">' + i + '</label></div>').hide();
-  }
+    }
   else {
     $('#all-floors').append('<div class="floor-form col-md-2 floor"><input id="' + i +'" type="radio" value="' + i +'"name="apartment[apartment_floor]"><label for="' + i +'" id="floor_number">' + i + '</label></div>');
   }
@@ -85,7 +129,8 @@ floor.show();
     $("#status-user").removeClass('hidden');
 });
 
-});
+
+}
 
 
 
