@@ -4,13 +4,25 @@ class PagesController < ApplicationController
 
   def home
     @posts = Post.all.reverse
-    @post_calendar = []
-    @posts.each do |post|
-      @post_calendar << post if !post.date.nil?
-    end
+    get_event
   end
 
   def landing
+  end
+
+  def get_event
+    today = Date.today
+    @dates_header = (today..today+7).map { |date| date.strftime("%v").capitalize }
+
+    @h = Hash.new{|hsh,key| hsh[key] = [] }
+    @posts.map do |post|
+      if !post.date.nil?
+        if @dates_header.include? post.date.strftime("%v").downcase
+          @h[post.date.strftime("%v")].push post
+        end
+      end
+    end
+    return @events = Hash[@h.sort]
   end
 
   private
@@ -19,5 +31,9 @@ class PagesController < ApplicationController
     if current_user.apartment_users.empty?
       redirect_to new_apartment_path, notice: "Tell us where do you leave"
     end
+  end
+
+  def time_calendar
+    strftime("%v")
   end
 end
