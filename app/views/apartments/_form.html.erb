@@ -17,7 +17,7 @@
         <div class="row">
           <div class="col-md-12">
             <%= f.text_field :owner_id, id: "password#{index}", class: "form-control password#{index} hidden password", :data => { :id => "password#{index}", password: building.building_password}, placeholder: "Mot de passe.." %>
-            <label onclick="button(this);" class="hidden password<%= index %> button" id="button<%= index %>" data-id="password<%= index %>" data-password="<%= building.building_password %>">Verifier</label>
+            <label onclick="button(this);" class="hidden password-text password<%= index %> button" id="button<%= index %>" data-id="password<%= index %>" data-password="<%= building.building_password %>">Cliquer ici pour vérifier</label>
           </div>
         </div>
         </div>
@@ -27,7 +27,7 @@
 
   <div class="row">
     <div class="col-md-6" id="all-floors"></div>
-    <div class="col-md-6">
+    <div class="col-md-6" id="ref-status">
       <div id="reference-flat"></div>
       <div class="hidden" id="status-user">
         <br>
@@ -56,47 +56,44 @@
 
 <script>
 
+$(document).ready(function() {
+  $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+
 function test(d){
+   $('.floor-form').remove();
+   $('#title-floor').remove();
   $(".button").addClass('hidden');
   $(".password").addClass('hidden');
   $("#" + $(d).data('id')).removeClass('hidden');
   $("." + $(d).data('id')).removeClass('hidden');
-  stateModule.test1(d)
+  $("#ref-status").addClass('hidden');
 }
 
 function button(info_button){
  var input = $("." + $(info_button).data('id')).val();
  if (input == $(info_button).data('password')) {
+  $(".password").removeClass('not-verify')
+  $(".button").removeClass('not-verify')
+  $(".button").removeClass('verify')
   $("." + $(info_button).data('id')).addClass('verify');
+  $(".button").removeClass('verify')
+  $('.submit-form').attr("disabled", false);
   etage();
  }
 
  else {
+  $(".button").removeClass('verify')
   $("." + $(info_button).data('id')).addClass('not-verify');
+  $(".button").removeClass('not-verify')
  }
 
  }
-
-var stateModule = (function(){
-  var self = {};
-  var password;
-
-
-  self.test1 = function(d){
-    var password = $(d).data('password')
-    console.log(password);
-  }
-
-  self.button = function(button){
-    console.log(password);
-
-  }
-    // function button(info_button){
-    //  console.log(info_button)
-    // }
-    return self;
-
-  }());
 
 
 function etage() {
@@ -119,6 +116,7 @@ floor.show();
   $(".floor-form label").click(function() {
     $('.reference-form').remove();
     $('#title-reference').remove();
+    $("#ref-status").removeClass('hidden');
     $('#reference-flat').append("<h1 id='title-reference'>Référence de votre logement</h1>")
     var infoFlat = $('#reference-flat').append('<div class="reference-form col-md-8 col-md-offset-2"><input placeholder="Ascenseur gauche, Numero 303 etc..." class="form-control input-box" type="text" name="apartment[apartment_ref]" id="reference-flat"></div>').hide();
     infoFlat.slideDown();
@@ -135,7 +133,6 @@ floor.show();
 
 
 $('.submit-form').attr("disabled", true);
-var data = $('#password').data("password");
-console.log(data);
+
 
 </script>

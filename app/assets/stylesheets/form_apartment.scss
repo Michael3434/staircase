@@ -70,11 +70,17 @@ label {
 }
 
 .verify {
-  border: 1px solid green;
+  border: 2px solid #329F5B;
 }
 
 .not-verify {
-  border: 1px solid red;
+  border: 2px solid #D34E24;
+}
+
+.password-text {
+    color: #568B94;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 
