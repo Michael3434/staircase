@@ -18,6 +18,7 @@ gem 'faker'
 
 gem "figaro"
 gem 'font-awesome-sass'
+gem 'twilio-ruby', '~> 4.2.1'
 
 ruby '2.2.3'
 gem 'rails_12factor', group: :production
