@@ -67,4 +67,26 @@ post = Post.new(
 post.save
 end
 
+building1 = Building.new(
+  address: "221 chaussée d'alsemberg",
+  number_floor: 9,
+  building_password: "bruxelles",
+  guardian_id: 1,
+  syndic_id: 1,
+  name: ""
+  )
+
+building1.save
+
+building2 = Building.new(
+  address: "12 rue jean richepin",
+  number_floor: 11,
+  building_password: "paris",
+  guardian_id: 2,
+  syndic_id: 2,
+  name: "chupito"
+  )
+
+building2.save
+
 
