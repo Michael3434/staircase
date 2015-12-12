@@ -9,7 +9,8 @@
         <h2 class="text-center">Calendar</h2>
         <% @post_calendar.each do |post| %>
         <%= post.title %>
-        <%= post.date_time %>
+        le <%= post.date_time %>
+        par <%= post.user.first_name %>
         <hr>
         <% end %>
       </div>
