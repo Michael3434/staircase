@@ -37,18 +37,25 @@ end
 
 private
 
-# def twilio_example
-#   account_sid = ENV['TWILIO_SID']
-#   auth_token = ENV['TWILIO_AUTHTOKEN']
-#   client = Twilio::REST::Client.new account_sid, auth_token
-#   from = "+33644607391" # Your Twilio number
-#   to =   "+33646462144"
-#   client.account.messages.create(
-#     :from => from,
-#     :to => to,
-#     :body => "Hey Yo, this is my message from Twilio using Ruby"
-#   )
-# end
+def twilio_example(list, content)
+  @building = current_user.apartmentUser.first.building
+  @user = User.all
+  @user.each do |user|
+    if user.apartmentUser.first.building == @building
+      account_sid = ENV['TWILIO_SID']
+      auth_token = ENV['TWILIO_AUTHTOKEN']
+      client = Twilio::REST::Client.new account_sid, auth_token
+      from = "+33644607391" # Your Twilio number
+      to =   "#{user.phone_number}"
+      client.account.messages.create(
+        :from => from,
+        :to => to,
+        :body => "#{content}"
+      )
+    end
+  end
+
+end
 
 def post_params
     params.require(:post).permit(:user_id, :title, :content, :post_type, :date)

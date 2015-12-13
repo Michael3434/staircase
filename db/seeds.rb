@@ -68,7 +68,7 @@ post.save
 end
 
 building1 = Building.new(
-  address: "12 rue jean richepin",
+  address: "12 rue jean richepin, Paris",
   number_floor: 11,
   building_password: "paris",
   guardian_id: 1,
@@ -79,12 +79,12 @@ building1 = Building.new(
 building1.save
 
 building2 = Building.new(
-  address: "221 chaussée d'alsemberg ",
+  address: "221 chaussée d'alsemberg, Bruxelles ",
   number_floor: 9,
   building_password: "bruxelles",
   guardian_id: 2,
   syndic_id: 2,
-  name: "221 Chaussée d'Alsemberg"
+  name: "221 Chaussée d'Alsemberg, Bruxelles"
   )
 
 building2.save
