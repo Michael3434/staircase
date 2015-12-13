@@ -38,10 +38,10 @@ end
 private
 
 def twilio_example(list, content)
-  @building = current_user.apartmentUser.first.building
+  @building = current_user.apartment_user.first.building
   @user = User.all
   @user.each do |user|
-    if user.apartmentUser.first.building == @building
+    if user.apartment_user.first.building == @building
       account_sid = ENV['TWILIO_SID']
       auth_token = ENV['TWILIO_AUTHTOKEN']
       client = Twilio::REST::Client.new account_sid, auth_token
