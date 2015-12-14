@@ -3,13 +3,13 @@ require 'twilio-ruby'
 
 class SmsController < ApplicationController
 before_action :set_message, only: [:create]
-def new
+def new_
 end
 
 def create
   raise
   # trouve le moyen de recup l'id d'un immeuble
-  @building = Building.find(params[:custom_params])
+  @building = Building.find(current_user.id_building_to_show)
   @building.users.each do |user|
   twilio(@content, user.phone_number)
   end
