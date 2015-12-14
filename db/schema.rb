@@ -84,8 +84,9 @@ ActiveRecord::Schema.define(version: 20151214090433) do
     t.text     "content"
     t.datetime "date"
     t.string   "post_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "id_building"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
@@ -115,8 +116,12 @@ ActiveRecord::Schema.define(version: 20151214090433) do
     t.boolean  "is_renter"
     t.integer  "phone_number"
     t.integer  "apartment_id"
+<<<<<<< HEAD
+    t.integer  "id_building_to_show"
+=======
     t.datetime "startnothere"
     t.datetime "endnothere"
+>>>>>>> master
   end
 
   add_index "users", ["apartment_id"], name: "index_users_on_apartment_id", using: :btree
