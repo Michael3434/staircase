@@ -50,12 +50,14 @@
           <li><%= link_to("Connexion", user_session_path, :method => 'post')
           %></li>
           <li><%= link_to "Inscription", new_user_registration_path %></li>
-        <% else %>s
-          <% if (current_user.endnothere <= Time.now) == false %>
+        <% else %>
+          <% if !current_user.endnothere.nil? %>
+            <% if (current_user.endnothere <= Time.now) == false &&  %>
           <li>
             <%= link_to "#", id: "absent" do %>
             Vous êtes absent
           </li>
+          <% end %>
           <% end %>
           <% end %>
             <li>
