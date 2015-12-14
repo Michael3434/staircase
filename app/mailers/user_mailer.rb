@@ -11,8 +11,14 @@ class UserMailer < ApplicationMailer
       subject:"[StairCaze] Bravo #{@user.first_name} !",
       to: @user.email,
       from:'michael@ispeakin.com',
-      html_body: '<strong>Hello</strong> dear Postmark user.',
       track_opens:'true')
+  end
+
+  def self.post_to_building(user)
+    @building = Building.find(user.id_building_to_show)
+    @building.users.each do |u|
+    post(u).deliver_now
+    end
   end
 end
 
