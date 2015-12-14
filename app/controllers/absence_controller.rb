@@ -1,5 +1,5 @@
 class AbsenceController < ApplicationController
-
+before_action :is_pm
 
 @users = []
   def people_absent
@@ -10,6 +10,12 @@ class AbsenceController < ApplicationController
           @users << apartment.user if apartment.user != current_user
         end
       end
+    end
+  end
+
+  def is_pm
+    if current_user.is_pm.nil?
+      redirect_to home_path, notice: "You don't have the permission :) "
     end
   end
 end
