@@ -90,17 +90,8 @@ function test(d){
 function button(info_button){
  var input = $("." + $(info_button).data('id')).val();
  var id_building = $(info_button).data('valeur')
-var jqxhr = $.getJSON( "././assets/javascripts/data.json", function() {
-  console.log( "success" );
-  console.log( jqxhr );
 
-})
   for (var i = 0; i < obj.building.length; i++) {
-    console.log(obj.building[i].password);
-    console.log(typeof(input));
-    console.log(typeof(obj.building[i].password));
-    console.log(id_building);
-    console.log(typeof(obj.building[i].password));
 
     if(id_building == obj.building[i].id){
       if( input == obj.building[i].password){

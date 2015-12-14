@@ -11,7 +11,7 @@
         <label><%= date %></label>
         <% posts.each do |post| %>
         <p><%= post.title %></p>
-        <p><%= post.user.first_name %></p>
+        <p>From : <%= post.user.first_name %></p>
         <% end %><hr>
         <% end %>
 
@@ -36,8 +36,8 @@
               <% if current_user && post.user == current_user %><%= link_to 'Modifier', edit_post_path(post) %><% end %>
 
               <% if current_user && post.user == current_user %><%= link_to 'Supprimer', post, method: :delete, data: { confirm: 'Supprimez cette annonce ?' } %>
-              </div>
            <% end %>
+           </div>
           </div>
           <% end %>
         </div>
