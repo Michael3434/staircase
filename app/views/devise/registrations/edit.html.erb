@@ -37,16 +37,8 @@
 
           <div class="form-group">
             <%= f.check_box :show_phone %>
-            Je refuse de partager mon numéro de téléphone avec mes voisins
+            J'accepte de partager mon numéro de téléphone avec mes voisins
           </div>
-
-            <div class="form-group select">
-              <%= f.select :phone_number, (0..9), id: "building_id", prompt:"Selectionner votre étage", class:"form-control" %>
-            </div>
-
-            <div class="form-group">
-              <%= f.text_field :phone_number, autofocus: true, class: "form-control", placeholder:"Entrer le numéro (ex: 301) ou la position de votre appartement (ex: 'gauche en sortant de l'ascenceur')" %>
-            </div>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>

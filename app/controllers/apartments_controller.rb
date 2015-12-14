@@ -63,24 +63,7 @@ class ApartmentsController < ApplicationController
 
   private
 
-  def twilio_example(list, content)
-  @building = current_user.apartment_user.first.building
-  @user = User.all
-  @user.each do |user|
-    if user.apartment_user.first.building == @building
-      account_sid = ENV['TWILIO_SID']
-      auth_token = ENV['TWILIO_AUTHTOKEN']
-      client = Twilio::REST::Client.new account_sid, auth_token
-      from = "+33644607391" # Your Twilio number
-      to =   "#{user.phone_number}"
-      client.account.messages.create(
-        :from => from,
-        :to => to,
-        :body => "#{content}"
-      )
-    end
-  end
-end
+
 
   def set_apartment
     @apartment = Apartment.find(params[:id])

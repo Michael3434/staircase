@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'sms/new'
+  get 'sms/create'
+
   resources :appointments, only: [:new, :create]
   resources :posts
 resources :apartments

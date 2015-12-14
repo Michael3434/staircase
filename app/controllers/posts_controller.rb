@@ -1,4 +1,3 @@
-require 'twilio-ruby'
 
 class PostsController < ApplicationController
 
