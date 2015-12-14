@@ -3,6 +3,8 @@ class PagesController < ApplicationController
   before_action :apartment_user?
 
   def home
+    raise
+    @building = current_user.apartment_user.first.building
     @posts = Post.all.reverse
     get_event
   end
