@@ -9,13 +9,7 @@ def create
   @post = current_user.posts.build(post_params)
   @post.id_building = current_user.id_building_to_show
   if @post.save
-<<<<<<< HEAD
-    # twilio_example
-=======
-
     UserMailer.post_to_building(current_user) if params["by_email"] == "on"
-
->>>>>>> master
     redirect_to home_path, notice: "Saved..."
   else
     redirect_to new_post_path, alert: "Error to save..."

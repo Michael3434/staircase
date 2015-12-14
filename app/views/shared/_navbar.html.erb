@@ -53,11 +53,7 @@
         <% else %>
 
           <% if !current_user.endnothere.nil? %>
-<<<<<<< HEAD
             <% if (current_user.endnothere <= Time.now) == false %>
-=======
-            <% if (current_user.endnothere <= Time.now) == false  %>
->>>>>>> master
           <li>
             <%= link_to "#", id: "absent" do %>
             Vous êtes absent
