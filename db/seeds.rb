@@ -89,4 +89,17 @@ building2 = Building.new(
 
 building2.save
 
+User.new(
+        first_name: "Annabelle",
+        last_name:  "Mathias",
+        email:     "annabellemathias",
+        password:  "qwertyuiop",
+        phone_number:     "0404040404",
+        show_phone: false,
+        is_owner: false,
+        is_syndic: true,
+        is_renter: false,
+        is_pm: true
+        )
+
 

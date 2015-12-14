@@ -8,7 +8,7 @@ end
 
 def create
   @post = current_user.posts.build(post_params)
-
+  @post.id_building = current_user.id_building_to_show
   if @post.save
     twilio_example
     redirect_to home_path, notice: "Saved..."

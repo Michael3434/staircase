@@ -1,4 +1,5 @@
 class ApartmentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_apartment, only: [:edit,:update, :show, :destroy]
 
   def index
@@ -46,6 +47,8 @@ class ApartmentsController < ApplicationController
     if @apartment.save
       ap_user = current_user.apartment_users.build(apartment: @apartment, status: params[:apartment][:resident_id])
       ap_user.save
+      current_user.id_building_to_show = @building.id
+      current_user.save
       redirect_to home_path, notice: "Saved..."
     else
       redirect_to new_apartment_path, notice: "Not Saved..."

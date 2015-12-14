@@ -12,12 +12,52 @@
       <% end %>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
+      <% if(user_signed_in?) && current_user.apartment_users.length > 1 %>
+      <ul class="nav navbar-nav">
+      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            Changer d'immeuble<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <% @list_buildings.each do |building| %>
+            <%= form_tag apart_path, class: "navbar-form navbar-left", method: :get do %>
+              <div class="form-group">
+         <%= hidden_field_tag :building_id, params[:building_id], value: building.apartment.building.id, class: "form-control" %>
+        <%= submit_tag building.apartment.building.address, class: "btn btn-primary btn-search" %>
+      </div>
+      <% end %>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+      <% end %>
+      <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <% if(user_signed_in?) %>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            M'absenter<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <%= form_tag date_path, class: "navbar-form navbar-left", method: :get do %>
+             <%= text_field_tag :date_start, "Date de départ" %>
+             <%= text_field_tag :date_end, "Date de retour" %>
+          <%= submit_tag "GO", class: "btn btn-primary btn-search" %>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+            <% end %>
       <ul class="nav navbar-nav navbar-right">
         <% if(!user_signed_in?) %>
           <li><%= link_to("Connexion", user_session_path, :method => 'post')
           %></li>
           <li><%= link_to "Inscription", new_user_registration_path %></li>
-        <% else %>
+        <% else %>s
+          <% if (current_user.endnothere <= Time.now) == false %>
+          <li>
+            <%= link_to "#", id: "absent" do %>
+            Vous êtes absent
+          </li>
+          <% end %>
+          <% end %>
             <li>
               <%= link_to home_path do %>
               <i class="fa fa-building-o fa-lg"></i>&nbsp;Hall
@@ -40,5 +80,14 @@
     </div><!--/.nav-collapse -->
   </div>
 </nav>
+
+<script>
+ $('#date_start').datepicker({
+          dateFormat: 'dd-mm-yy'
+    });
+  $('#date_end').datepicker({
+          dateFormat: 'dd-mm-yy'
+    });
+</script>
 
 

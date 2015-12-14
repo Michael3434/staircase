@@ -15,6 +15,10 @@ resources :apartments
 
   root 'pages#landing'
 
+  get '/apart' => 'pages#search'
+
+  get '/date' => 'pages#date'
+
   devise_for  :users,
               path: '',
               path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profile'},

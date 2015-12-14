@@ -7,6 +7,12 @@ class UserMailer < ApplicationMailer
   #
   def post(user)
     @user = user
-    mail to: @user.email, subject: "[StairCaze] Bravo #{@user.first_name} !"
+     mail(
+      subject:"[StairCaze] Bravo #{@user.first_name} !",
+      to: @user.email,
+      from:'michael@ispeakin.com',
+      html_body: '<strong>Hello</strong> dear Postmark user.',
+      track_opens:'true')
   end
 end
+
