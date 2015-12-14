@@ -8,7 +8,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def list_building
-    @list_buildings = current_user.apartment_users
+
+    @list_buildings = current_user.apartment_users if !current_user.nil?
   end
 
   def configure_permitted_paramters
