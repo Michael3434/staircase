@@ -22,7 +22,9 @@ resources :apartments
 
   get '/date' => 'pages#date'
 
-  get '/twilio' => 'apartments#twilio_example'
+  get '/absence' => 'absence#people_absent'
+
+
 
   devise_for  :users,
               path: '',

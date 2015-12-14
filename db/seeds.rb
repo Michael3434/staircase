@@ -89,10 +89,10 @@ building2 = Building.new(
 
 building2.save
 
-User.new(
+gardienne = User.new(
         first_name: "Annabelle",
         last_name:  "Mathias",
-        email:     "annabellemathias",
+        email:     "gardienne@gmail.com",
         password:  "qwertyuiop",
         phone_number:     "0404040404",
         show_phone: false,
@@ -101,5 +101,10 @@ User.new(
         is_renter: false,
         is_pm: true
         )
+
+gardienne.save
+puts "Gardinne create - email"
+puts "Email = gardienne@gmail.com"
+puts "Password = qwertyuiop"
 
 

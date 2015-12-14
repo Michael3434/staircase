@@ -44,7 +44,7 @@
           </ul>
         </li>
       </ul>
-            <% end %>
+      <% end %>
       <ul class="nav navbar-nav navbar-right">
         <% if(!user_signed_in?) %>
           <li><%= link_to("Connexion", user_session_path, :method => 'post')
@@ -53,7 +53,7 @@
         <% else %>
 
           <% if !current_user.endnothere.nil? %>
-            <% if (current_user.endnothere <= Time.now) == false  %>
+            <% if (current_user.endnothere <= Time.now) == false %>
           <li>
             <%= link_to "#", id: "absent" do %>
             Vous êtes absent
