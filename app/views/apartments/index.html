@@ -6,7 +6,7 @@
           <%= link_to "Mon profil", edit_user_registration_path, class: "sidebar-link"  %>
         </div>
         <div class="col-md-6">
-          <%= link_to (current_user.apartment_users.length > 1 ? "Mes apartment" : "Mon apartment"), apartments_path, class: "sidebar-link active " %>
+          <%= link_to (current_user.apartment_users.length > 1 ? "Mes appartments" : "Mon appartement"), apartments_path, class: "sidebar-link active " %>
         </div>
       </div>
     </div>
@@ -26,14 +26,14 @@
           Etage : <span> <%= apartment.apartment.apartment_floor %> </span>
         </div>
         <div class="col-md-3">
-          Votre appartement : <span> <%= apartment.apartment.apartment_ref %> </span>
+          N°/position : <span> <%= apartment.apartment.apartment_ref %> </span>
         </div>
 
         <div class="col-md-1">
-          <%= link_to "#" do %>
+          <%= link_to edit_apartment_path(apartment) do %>
           <i class="fa fa-pencil-square-o fa-lg"></i>
           <% end %>
-          <%= link_to apartment_path(apartment), method: :delete, data: { confirm: 'Supprimez cette apartment ?' } do %>
+          <%= link_to apartment_path(apartment), method: :delete, data: { confirm: 'Supprimez cet appartement ?' } do %>
           <i class="fa fa-times fa-lg"></i>
           <% end %>
         </div>
