@@ -1,5 +1,5 @@
 <br><br>
-<h1 class="text-center">Choisissez votre immeuble</h1>
+<h1 class="text-center">Choissisez votre immeuble</h1>
 <br>
 
   <%= form_for @apartment, :html => {:class => "text-center"} do |f| %>
@@ -10,7 +10,7 @@
       <div class="building">
         <%= f.radio_button :building_id, building.id, id: building.name, :onclick => "test(this);", :data => { :id => "password#{index}", password: building.building_password } %>
         <label for="<%= building.name %>">
-          <div class="circle-building" data-floornumber=<%= building.number_floor %>><i class="fa fa-building-o fa-4x icon-building"></i>
+          <div id="floor" class="circle-building" data-floornumber=<%= building.number_floor %>><i class="fa fa-building-o fa-4x icon-building"></i>
       </div>
           <h4><%= building.name %></h4>
         </label>
@@ -32,13 +32,13 @@
       <div class="hidden" id="status-user">
         <br>
         <h3 class="title-status">Êtes-vous ?</h3>
-        <div class="col-md-4 status text-center">
+        <div class="col-md-6 status text-center">
           <%= f.radio_button :resident_id, "locataire", id: "locataire" %>
         <label for="locataire">
           <div>Locataire</div>
           </label>
         </div>
-        <div class="col-md-4 status">
+        <div class="col-md-6 status">
           <%= f.radio_button :resident_id, "propriétaire", id: "propriétaire" %>
         <label for="propriétaire">
           <div>Propriétaire</div>
@@ -77,42 +77,46 @@ function test(d){
 
 function button(info_button){
  var input = $("." + $(info_button).data('id')).val();
- if (input == $(info_button).data('password')) {
-  $(".password").removeClass('not-verify')
-  $(".button").removeClass('not-verify')
-  $(".button").removeClass('verify')
-  $("." + $(info_button).data('id')).addClass('verify');
-  $(".button").removeClass('verify')
-  etage();
- }
+   if (input == $(info_button).data('password')) {
+    $(".password").removeClass('not-verify')
+    $(".button").removeClass('not-verify')
+    $(".button").removeClass('verify')
+    $("." + $(info_button).data('id')).addClass('verify');
+    $(".button").removeClass('verify')
+    etage();
+   }
 
- else {
-  $(".button").removeClass('verify')
-  $("." + $(info_button).data('id')).addClass('not-verify');
-  $(".button").removeClass('not-verify')
- }
+   else {
+    $(".button").removeClass('verify')
+    $("." + $(info_button).data('id')).addClass('not-verify');
+    $(".button").removeClass('not-verify')
+   }
 
  }
 
 
 function etage() {
   var data = $('.circle-building').data("floornumber");
+  console.log(data);
   $('.floor-form').remove();
   $('#title-floor').remove();
-  $('#all-floors').append("<h1 id='title-floor'>Votre Etage</h1>")
+  $('#all-floors').append("<h1 id='title-floor'>Votre Etage</h1>");
   for(var i = 0; i <= data; i++) {
     if (i % 2 == 0 || i == 0) {
   var floor = $('#all-floors').append('<div class="floor-form col-md-2 col-md-offset-5 floor"><input id="' + i +'" type="radio" value="' + i +'" name="apartment[apartment_floor]"><label for="' + i +'" id="floor_number">' + i + '</label></div>').hide();
     }
-  else {
+    else {
     $('#all-floors').append('<div class="floor-form col-md-2 floor"><input id="' + i +'" type="radio" value="' + i +'"name="apartment[apartment_floor]"><label for="' + i +'" id="floor_number">' + i + '</label></div>');
+    }
+  floor.slideDown();
+  floor.show();
   }
 }
 
-floor.slideDown();
-floor.show();
 
-  $(".floor-form label").click(function() {
+
+  $("#all-floors").click(function() {
+    console.log("lol")
     $('.reference-form').remove();
     $('#title-reference').remove();
     $("#ref-status").removeClass('hidden');
@@ -120,21 +124,13 @@ floor.show();
     var infoFlat = $('#reference-flat').append('<div class="reference-form col-md-8 col-md-offset-2"><input placeholder="Ascenseur gauche, Numero 303 etc..." class="form-control input-box" type="text" name="apartment[apartment_ref]" id="reference-flat"></div>').hide();
     infoFlat.slideDown();
     infoFlat.show();
-});
+  });
 
  $('#reference-flat').bind('input', function() {
-    $("#status-user").removeClass('hidden');
-});
-
-$("#status-user").click(function())
+    $("#status-user").removeClass('hidden')
+  });
 
 
-
-}
-
-
-
-$('.submit-form').attr("disabled", true);
 
 
 </script>
