@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'sms/new'
+  get 'sms/create'
+
   resources :appointments, only: [:new, :create]
   resources :posts
 resources :apartments
@@ -20,6 +23,8 @@ resources :apartments
   get '/date' => 'pages#date'
 
   get '/absence' => 'absence#people_absent'
+
+
 
   devise_for  :users,
               path: '',

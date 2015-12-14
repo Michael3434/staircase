@@ -51,8 +51,13 @@
           %></li>
           <li><%= link_to "Inscription", new_user_registration_path %></li>
         <% else %>
+
           <% if !current_user.endnothere.nil? %>
+<<<<<<< HEAD
             <% if (current_user.endnothere <= Time.now) == false %>
+=======
+            <% if (current_user.endnothere <= Time.now) == false  %>
+>>>>>>> master
           <li>
             <%= link_to "#", id: "absent" do %>
             Vous êtes absent
@@ -65,6 +70,12 @@
               <i class="fa fa-building-o fa-lg"></i>&nbsp;Hall
               <% end %>
             </li>
+            <li>
+              <%= link_to sms_new_path do %>
+              <i class="fa fa-paper-plane"></i>&nbsp;SMS
+              <% end %>
+            </li>
+
 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

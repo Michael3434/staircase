@@ -1,4 +1,3 @@
-require 'twilio-ruby'
 
 class PostsController < ApplicationController
 
@@ -10,7 +9,13 @@ def create
   @post = current_user.posts.build(post_params)
   @post.id_building = current_user.id_building_to_show
   if @post.save
+<<<<<<< HEAD
     # twilio_example
+=======
+
+    UserMailer.post_to_building(current_user) if params["by_email"] == "on"
+
+>>>>>>> master
     redirect_to home_path, notice: "Saved..."
   else
     redirect_to new_post_path, alert: "Error to save..."
@@ -36,26 +41,6 @@ end
 
 
 private
-
-def twilio_example(list, content)
-  @building = current_user.apartment_user.first.building
-  @user = User.all
-  @user.each do |user|
-    if user.apartment_user.first.building == @building
-      account_sid = ENV['TWILIO_SID']
-      auth_token = ENV['TWILIO_AUTHTOKEN']
-      client = Twilio::REST::Client.new account_sid, auth_token
-      from = "+33644607391" # Your Twilio number
-      to =   "#{user.phone_number}"
-      client.account.messages.create(
-        :from => from,
-        :to => to,
-        :body => "#{content}"
-      )
-    end
-  end
-
-end
 
 def post_params
     params.require(:post).permit(:user_id, :title, :content, :post_type, :date)

@@ -63,6 +63,8 @@ class ApartmentsController < ApplicationController
 
   private
 
+
+
   def set_apartment
     @apartment = Apartment.find(params[:id])
   end
