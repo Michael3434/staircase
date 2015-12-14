@@ -6,6 +6,7 @@ class PagesController < ApplicationController
     @building_id = current_user.id_building_to_show
     @posts = Post.all.where(id_building: @building_id)
     get_event
+
   end
 
   def landing
@@ -13,6 +14,14 @@ class PagesController < ApplicationController
 
   def search
     current_user.id_building_to_show = params[:building_id].to_i
+
+    current_user.save
+    redirect_to home_path
+  end
+
+  def date
+    current_user.startnothere = params[:date_start]
+    current_user.endnothere = params[:date_end]
 
     current_user.save
     redirect_to home_path
