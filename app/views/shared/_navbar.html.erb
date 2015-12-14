@@ -47,10 +47,10 @@
             <% end %>
       <ul class="nav navbar-nav navbar-right">
         <% if(!user_signed_in?) %>
-          <li><%= link_to("Log In", user_session_path, :method => 'post')
+          <li><%= link_to("Connexion", user_session_path, :method => 'post')
           %></li>
-          <li><%= link_to "Sign Up", new_user_registration_path %></li>
-        <% else %>
+          <li><%= link_to "Inscription", new_user_registration_path %></li>
+        <% else %>s
           <% if (current_user.endnothere <= Time.now) == false %>
           <li>
             <%= link_to "#", id: "absent" do %>
@@ -58,31 +58,21 @@
           </li>
           <% end %>
           <% end %>
-           <li>
-            <%= link_to apartments_path do %>
-            <i class="fa fa-tachometer fa-lg">&nbsp;Tableau de bord</i>
-          <% end %>
-            </li>
-            <li>
-            <%= link_to home_path do %>
-            <i class="fa fa-building-o fa-lg"></i>&nbsp;Hall
-            <% end %>
-          </li>
             <li>
               <%= link_to home_path do %>
               <i class="fa fa-building-o fa-lg"></i>&nbsp;Hall
               <% end %>
             </li>
+
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
             <%= image_tag "http://lorempixel.com/100/100/people", class: "img-circle avatar-small" %>&nbsp<%= current_user.first_name %><span class="caret"></span></a>
           <ul class="dropdown-menu">
 
-            <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+            <li><%= link_to "Paramètres de mon compte", edit_user_registration_path %></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Account setting</a></li>
-             <li><%= link_to "Mes appartments", apartments_path %></li>
-            <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+             <li><%= link_to "Mes appartements", apartments_path %></li>
+            <li><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>
       <% end %>
