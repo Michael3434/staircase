@@ -1,6 +1,8 @@
 <h1> StairCaze - My Hall</h1>
 
 <p>
- Bonjour  <%= @user.first_name %>,
- Vous venez de poster un message sur le hall de votre immeuble.
+Bonjour  <%= @user.first_name %>, <br>
+ Le <%= @user.posts.last.created_at %>, vous venez de poster le message ci-dessous sur le hall de votre immeuble. <br>
+ Titre : <%= @user.posts.last.title %> <br>
+ Contenu : <br> <%= @user.posts.last.content =%>
 </p>

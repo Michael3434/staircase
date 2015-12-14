@@ -17,13 +17,24 @@
 
           <div class="form-group form-box" id="post-content">
             <label class="label-message col-sm-4 control-label">Description</label>
-            <%= f.text_area :content, placeholder: "Je fais une crémaillére lundi prochain.., Une reunion est prévus le ...", class: "form-control input-box" %>
-            <br>
-            <a class="col-sm-4 control-label" id="show-date">Ajouter une date</a>
-            <div class="hidden" id="post-date">
-             <%= f.text_field :date, readonly: 'true', placeholder: 'Start Date', class: "form-control input-box" %>
-            </div>
+            <%= f.text_area :content, placeholder: "J'organise une crémaillère lundi prochain.., Une reunion est prévue le ...", class: "form-control input-box" %>
           </div>
+
+            <div class="form-group form-box" id="post-date">
+            <label class="label-message col-sm-4 control-label">Ajouter une date (optionnel)</label>
+
+             <%= f.text_field :date, readonly: 'true', placeholder: 'Date de début', class: "form-control input-box" %>
+            </div>
+            <div class="form-group form-box" id="post-date">
+            <label class="label-message col-sm-4 control-label">Choix de diffusion</label>
+            <div class="form-group">
+            Avec la rédaction de ce message, je publie cette information dans le hall public virtuel de l'immeuble.
+          </div>
+          <div class="form-group">
+            <%=  check_box_tag :by_email, params[:by_email] %>
+            En cochant cette case, j'envoie aussi un email à tous les habitants de l'immeuble
+          </div>
+           </div>
           <%= f.submit "Envoyer", class: "pull-right", id: "btn-submit" %>
         <% end %>
       </div>
