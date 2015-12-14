@@ -19,6 +19,8 @@ resources :apartments
 
   get '/date' => 'pages#date'
 
+  get '/absence' => 'absence#people_absent'
+
   devise_for  :users,
               path: '',
               path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profile'},

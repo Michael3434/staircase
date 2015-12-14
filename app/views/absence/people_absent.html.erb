@@ -1,0 +1,35 @@
+<div class="panel panel-default text-center">
+  <div class="panel-heading">
+    <span>Les personnes absentes</span>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-11 col-md-offset-1">
+        <% i = 1 %>
+        <% 31.times do %>
+          <li class="numero-calendar <%= 'color-today-barre' if Time.now.strftime("%d").to_i == i %>"><%= i %></li>
+          <% i += 1 %>
+        <% end %>
+      </div>
+    </div>
+
+        <% @users.each do |user| %>
+          <div class="row">
+            <div class="col-md-1 name">
+              <%= user.first_name %>
+            </div>
+            <div class="col-md-11">
+              <% i = 1 %>
+              <% 31.times do %>
+                <li class="<%= 'color-white' if user.endnothere.strftime("%d").to_i <= i %> <%= 'color-white' if user.startnothere.strftime("%d").to_i > i %> <%= 'color-today-people' if Time.now.strftime("%d").to_i == i %> color-here"  > <%= i %></li>
+                <% i += 1 %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+
+
+
+  </div>
+</div>
+

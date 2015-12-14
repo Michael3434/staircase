@@ -52,7 +52,7 @@
           <li><%= link_to "Inscription", new_user_registration_path %></li>
         <% else %>
           <% if !current_user.endnothere.nil? %>
-            <% if (current_user.endnothere <= Time.now) == false &&  %>
+            <% if (current_user.endnothere <= Time.now) == false %>
           <li>
             <%= link_to "#", id: "absent" do %>
             Vous êtes absent
