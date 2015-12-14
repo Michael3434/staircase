@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'sms/new'
+  get 'sms/create'
+
   resources :appointments, only: [:new, :create]
   resources :posts
 resources :apartments
@@ -18,6 +21,8 @@ resources :apartments
   get '/apart' => 'pages#search'
 
   get '/date' => 'pages#date'
+
+  get '/twilio' => 'apartments#twilio_example'
 
   devise_for  :users,
               path: '',

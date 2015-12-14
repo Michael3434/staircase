@@ -8,5 +8,4 @@ class RegistrationsController < Devise::RegistrationsController
     home_path
   end
 
-
 end

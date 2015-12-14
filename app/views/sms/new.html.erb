@@ -1,0 +1,42 @@
+<div class="row card-form row-margin">
+  <h2 class="form-title">Envoyer un message</h2>
+  <div class="col-md-8 col-md-offset-2">
+    <div class="row">
+      <div class="col-md-12">
+      <%= form_tag sms_create_path, class: "text-center form-horizontal", id: "register_form", method: :get %>
+
+          <div class="form-group form-box" id="post-type" >
+            <label class="label-message col-sm-4 control-label">Type de message</label>
+            <%= select_tag "test", options_for_select(["Service","Organisation immeuble","Événement"]), prompt: "Select un genre de message (service, organisation...)", class: "form-control input-box" %>
+          </div>
+
+          <div class="form-group form-box" id="post-content">
+            <label class="label-message col-sm-4 control-label">Description</label>
+            <%= text_area_tag "description", prompt: "Je fais une crémaillére lundi prochain.., Une reunion est prévus le ...", class: "form-control input-box" %>
+            <br>
+          </div>
+          <%= submit_tag "Envoyer", class: "pull-right", id: "btn-submit" %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $( "#show-date" ).click(function() {
+  console.log("lol");
+  $( "#post-date" ).slideDown();
+  $( "#post-date" ).removeClass('hidden');
+  });
+
+  $( "#preview-type" ).click(function() {
+  $( "#post-title" ).slideUp();
+  $( "#post-title" ).addClass('hidden');
+
+
+});
+
+   $('#post_date').datepicker({
+          dateFormat: 'dd-mm-yy'
+    });
+</script>
