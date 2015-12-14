@@ -30,6 +30,7 @@ gem 'omniauth-facebook'
 gem 'geocoder'
 
 gem 'paperclip'
+gem 'postmark-rails'
 
 gem 'ransack'
 gem 'aws-sdk', '< 2.0'
