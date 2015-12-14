@@ -3,13 +3,19 @@ class PagesController < ApplicationController
   before_action :apartment_user?
 
   def home
-    raise
-    @building = current_user.apartment_user.first.building
-    @posts = Post.all.reverse
+    @building_id = current_user.id_building_to_show
+    @posts = Post.all.where(id_building: @building_id)
     get_event
   end
 
   def landing
+  end
+
+  def search
+    current_user.id_building_to_show = params[:building_id].to_i
+
+    current_user.save
+    redirect_to home_path
   end
 
   def get_event
