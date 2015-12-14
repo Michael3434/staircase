@@ -16,8 +16,8 @@
         </label>
         <div class="row">
           <div class="col-md-12">
-            <%= f.text_field :owner_id, id: "password#{index}", class: "form-control password#{index} hidden password", :data => { :id => "password#{index}", password: building.building_password}, placeholder: "Mot de passe.." %>
-            <label onclick="button(this);" class="hidden password-text password<%= index %> button" id="button<%= index %>" data-id="password<%= index %>" data-password="<%= building.building_password %>">Cliquer ici pour vérifier</label>
+            <%= f.text_field :owner_id, id: "password#{index}", class: "form-control password#{index} hidden password", :data => { :id => "password#{index}"}, placeholder: "Mot de passe.." %>
+            <label onclick="button(this);" class="hidden password-text password<%= index %> button" id="button<%= index %>" data-id="password<%= index %>" data-valeur="<%= building.id %>">Cliquer ici pour vérifier</label>
           </div>
         </div>
         </div>
@@ -65,6 +65,18 @@ $(document).ready(function() {
   });
 });
 
+ var obj = {
+  "building": [
+    {
+      "id": 1,
+      "password": "paris"
+    },
+    {
+      "id": 2,
+      "password": "bruxelles"
+    }
+ ]};
+
 function test(d){
    $('.floor-form').remove();
    $('#title-floor').remove();
@@ -77,20 +89,40 @@ function test(d){
 
 function button(info_button){
  var input = $("." + $(info_button).data('id')).val();
-   if (input == $(info_button).data('password')) {
-    $(".password").removeClass('not-verify')
-    $(".button").removeClass('not-verify')
-    $(".button").removeClass('verify')
-    $("." + $(info_button).data('id')).addClass('verify');
-    $(".button").removeClass('verify')
-    etage();
-   }
+ var id_building = $(info_button).data('valeur')
+var jqxhr = $.getJSON( "././assets/javascripts/data.json", function() {
+  console.log( "success" );
+  console.log( jqxhr );
 
-   else {
-    $(".button").removeClass('verify')
-    $("." + $(info_button).data('id')).addClass('not-verify');
-    $(".button").removeClass('not-verify')
-   }
+})
+  for (var i = 0; i < obj.building.length; i++) {
+    console.log(obj.building[i].password);
+    console.log(typeof(input));
+    console.log(typeof(obj.building[i].password));
+    console.log(id_building);
+    console.log(typeof(obj.building[i].password));
+
+    if(id_building == obj.building[i].id){
+      if( input == obj.building[i].password){
+        $(".password").removeClass('not-verify');
+        $(".button").removeClass('not-verify');
+        $(".button").removeClass('verify');
+        $("." + $(info_button).data('id')).addClass('verify');
+        $(".button").removeClass('verify');
+        etage();
+        return;
+      }
+
+    }else {
+      $(".button").removeClass('verify');
+      $("." + $(info_button).data('id')).addClass('not-verify');
+      $(".button").removeClass('not-verify');
+     }
+  };
+
+
+
+
 
  }
 
@@ -130,5 +162,6 @@ function etage() {
 
     $("#status-user").removeClass('hidden')
   });
+
 
 </script>

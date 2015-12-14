@@ -14,7 +14,6 @@ class PagesController < ApplicationController
 
   def search
     current_user.id_building_to_show = params[:building_id].to_i
-
     current_user.save
     redirect_to home_path
   end

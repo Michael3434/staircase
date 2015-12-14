@@ -7,7 +7,7 @@ class AbsenceController < ApplicationController
     User.all.each do |user|
       user.apartment_users.each do |apartment|
         if apartment.apartment.building_id == current_user.id_building_to_show
-          @users << apartment.user
+          @users << apartment.user if apartment.user != current_user
         end
       end
     end
