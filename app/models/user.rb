@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :messages
   has_many :posts
   has_many :apartment_users, dependent: :destroy
+  has_many :apartments, through: :apartment_users
   belongs_to :apartment, dependent: :destroy
 
   def self.from_omniauth(auth)
