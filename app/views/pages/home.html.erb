@@ -1,4 +1,4 @@
-<div class="row card-form row-margin">
+<div class="card-form row-margin">
   <h2 class="form-title">Mon hall d'immeuble</h2>
   <div class="col-md-12 text-center">
    <%= link_to "Poster une annonce", new_post_path(@post),:class=>"btn btn-primary" %>
@@ -32,11 +32,18 @@
               <p><%= post.content %></p>
               <p><%= post.date %></p>
               </div>
-              <div class="text-center">
-              <% if current_user && post.user == current_user %><%= link_to 'Modifier', edit_post_path(post) %><% end %>
+              <div class="pull-right icon-post">
+              <% if current_user && post.user == current_user %>
+                <%= link_to edit_post_path(post) do %>
+                <i class="fa fa-pencil-square-o fa-2x"></i>
+                <% end %>
+              <% end %>
 
-              <% if current_user && post.user == current_user %><%= link_to 'Supprimer', post, method: :delete, data: { confirm: 'Supprimez cette annonce ?' } %>
-           <% end %>
+              <% if current_user && post.user == current_user %>
+                <%= link_to post, method: :delete, data: { confirm: 'Supprimez cette annonce ?' } do %>
+                  <i class="fa fa-times fa-2x"></i>
+                <% end %>
+              <% end %>
            </div>
           </div>
           <% end %>

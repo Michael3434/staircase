@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -14,46 +14,48 @@
     <div id="navbar" class="navbar-collapse collapse">
       <% if(user_signed_in?) && current_user.apartment_users.length > 1 %>
       <ul class="nav navbar-nav">
-      <li class="dropdown">
+        <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
             Changer d'immeuble<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <% @list_buildings.each do |building| %>
-            <%= form_tag apart_path, class: "navbar-form navbar-left", method: :get do %>
+            <ul class="dropdown-menu">
+              <% @list_buildings.each do |building| %>
+              <%= form_tag apart_path, class: "navbar-form navbar-left button-switch", method: :get do %>
               <div class="form-group">
-         <%= hidden_field_tag :building_id, params[:building_id], value: building.apartment.building.id, class: "form-control" %>
-        <%= submit_tag building.apartment.building.address, class: "btn btn-primary btn-search" %>
-      </div>
-      <% end %>
-            <% end %>
-          </ul>
-        </li>
-      </ul>
-      <% end %>
-      <ul class="nav navbar-nav">
-      <li class="dropdown">
-        <% if(user_signed_in?) %>
+               <%= hidden_field_tag :building_id, params[:building_id], value: building.apartment.building.id, class: "form-control" %>
+               <%= submit_tag building.apartment.building.address, class: "btn btn-primary btn-search" %>
+             </div>
+             <% end %>
+             <% end %>
+           </ul>
+         </li>
+       </ul>
+       <% end %>
+       <ul class="nav navbar-nav log-on">
+        <li class="dropdown">
+          <% if(user_signed_in?) %>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
             M'absenter<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <%= form_tag date_path, class: "navbar-form navbar-left", method: :get do %>
-             <%= text_field_tag :date_start, "Date de départ" %>
-             <%= text_field_tag :date_end, "Date de retour" %>
-          <%= submit_tag "GO", class: "btn btn-primary btn-search" %>
-            <% end %>
-          </ul>
-        </li>
-      </ul>
-      <% end %>
-      <ul class="nav navbar-nav navbar-right">
-        <% if(!user_signed_in?) %>
-          <li><%= link_to("Connexion", user_session_path, :method => 'post')
-          %></li>
-          <li><%= link_to "Inscription", new_user_registration_path %></li>
-        <% else %>
+            <ul class="dropdown-menu date-leaving">
+              <%= form_tag date_path, class: "navbar-form navbar-date", method: :get do %>
+              <%= text_field_tag :date_start, "Date de départ" %>
+              <%= text_field_tag :date_end, "Date de retour" %>
+              <%= submit_tag "GO", class: "btn btn-primary btn-search" %>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
+        <% end %>
+        <ul class="nav navbar-nav">
+          <% if(!user_signed_in?) %>
+          <li><a href="#" data-toggle="modal" data-target="#myModal" class="nav-off">Inscription</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#myModal2" class="nav-off2">Connection</a></li>
+
+
+
+          <% else %>
 
           <% if !current_user.endnothere.nil? %>
-            <% if (current_user.endnothere <= Time.now) == false %>
+          <% if (current_user.endnothere <= Time.now) == false %>
           <li>
             <%= link_to "#", id: "absent" do %>
             Vous êtes absent
@@ -61,42 +63,58 @@
           <% end %>
           <% end %>
           <% end %>
-            <li>
-              <%= link_to home_path do %>
-              <i class="fa fa-building-o fa-lg"></i>&nbsp;Hall
-              <% end %>
+          <li>
+            <%= link_to home_path do %>
+            <i class="fa fa-building-o fa-lg"></i>&nbsp;Hall
+            <% end %>
+          </li>
+          <li>
+            <%= link_to sms_new_path do %>
+            <i class="fa fa-paper-plane"></i>&nbsp;SMS
+            <% end %>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <%= image_tag "http://lorempixel.com/100/100/people", class: "img-circle avatar-small" %>&nbsp<%= current_user.first_name %><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Paramètres de mon compte", edit_user_registration_path %></li>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to "Mes appartements", apartments_path %></li>
+                <li><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></li>
+              </ul>
             </li>
-            <li>
-              <%= link_to sms_new_path do %>
-              <i class="fa fa-paper-plane"></i>&nbsp;SMS
-              <% end %>
-            </li>
-
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "http://lorempixel.com/100/100/people", class: "img-circle avatar-small" %>&nbsp<%= current_user.first_name %><span class="caret"></span></a>
-          <ul class="dropdown-menu">
-
-            <li><%= link_to "Paramètres de mon compte", edit_user_registration_path %></li>
-            <li role="separator" class="divider"></li>
-             <li><%= link_to "Mes appartements", apartments_path %></li>
-            <li><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></li>
+            <% end %>
           </ul>
-        </li>
-      <% end %>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div>
-</nav>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
 
-<script>
- $('#date_start').datepicker({
-          dateFormat: 'dd-mm-yy'
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <% if !user_signed_in? %>
+                <%= render '/devise/registrations/new', resource: @user, resource_name: @user %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <% if !user_signed_in? %>
+                <%= render '/devise/sessions/new', resource: @user, resource_name: @user %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+    <script>
+    $('#date_start').datepicker({
+      dateFormat: 'dd-mm-yy'
     });
-  $('#date_end').datepicker({
-          dateFormat: 'dd-mm-yy'
+    $('#date_end').datepicker({
+      dateFormat: 'dd-mm-yy'
     });
-</script>
+    </script>
 
 

@@ -19,7 +19,7 @@
               <%= user.first_name %>
             </div>
             <div class="col-md-11">
-              <% numbers = (1..30).to_a %>
+              <% numbers = (1..31).to_a %>
               <% numbers.each_with_index do |number, index|%>
                 <li class="<%= 'color-white' if user.endnothere.strftime("%d").to_i <= number %> <%= 'color-white' if user.startnothere.strftime("%d").to_i > number %> <%= 'color-today-people' if Time.now.strftime("%d").to_i == number %> color-here <%= 'color-last' if number == Time.now.strftime("%d").to_i %>"  > <%= number %></li>
               <% end %>
