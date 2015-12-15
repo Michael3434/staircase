@@ -7,7 +7,6 @@ def new_
 end
 
 def create
-  raise
   # trouve le moyen de recup l'id d'un immeuble
   @building = Building.find(current_user.id_building_to_show)
   @building.users.each do |user|
@@ -30,7 +29,7 @@ end
       from = "+33644607391" # Your Twilio number
       # to =   "+33646462144"
       to = '#{phone_number} '
-      client.account.content.create(
+      client.account.sms.create(
         :from => from,
         :to => to,
         :body => content
