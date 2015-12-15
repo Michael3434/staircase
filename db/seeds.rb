@@ -20,7 +20,7 @@ User.destroy_all
       p "#{user} Created"
     end
 
-5.times do
+10.times do
       user = User.new(
         first_name: Faker::Name.first_name,
         last_name:  Faker::Name.last_name,
@@ -71,6 +71,25 @@ frederic = User.new(
      )
    frederic.save
 
+   gardienne = User.new(
+        first_name: "Annabelle",
+        last_name:  "Mathias",
+        email:     "gardienne@gmail.com",
+        password:  "qwertyuiop",
+        phone_number:     "0404040404",
+        show_phone: false,
+        is_owner: false,
+        is_syndic: true,
+        is_renter: false,
+        is_pm: true
+        )
+
+gardienne.save
+puts "Gardinne create - email"
+puts "Email = gardienne@gmail.com"
+puts "Password = qwertyuiop"
+
+
 building1 = Building.new(
   address: "12 rue jean richepin, Paris",
   number_floor: 11,
@@ -93,23 +112,6 @@ building2 = Building.new(
 
 building2.save
 
-gardienne = User.new(
-        first_name: "Annabelle",
-        last_name:  "Mathias",
-        email:     "gardienne@gmail.com",
-        password:  "qwertyuiop",
-        phone_number:     "0404040404",
-        show_phone: false,
-        is_owner: false,
-        is_syndic: true,
-        is_renter: false,
-        is_pm: true
-        )
-
-gardienne.save
-puts "Gardinne create - email"
-puts "Email = gardienne@gmail.com"
-puts "Password = qwertyuiop"
 
 
 post1 = Post.new(
