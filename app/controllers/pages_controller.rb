@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!
-  before_action :apartment_user?
+  before_action :authenticate_user!, except: [:landing]
+  before_action :apartment_user?, except: [:landing]
 
   def home
     @building_id = current_user.id_building_to_show
@@ -10,6 +10,8 @@ class PagesController < ApplicationController
   end
 
   def landing
+    @user = User.new
+      redirect_to home_path if current_user
   end
 
   def search

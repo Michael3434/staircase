@@ -16,7 +16,7 @@ resources :apartments
   #   resources :apartments
   # end
 
-  root 'pages#landing'
+  root "pages#landing"
 
   get '/apart' => 'pages#search'
 
