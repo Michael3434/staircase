@@ -1,4 +1,4 @@
-<nav class="navbar navbar-fixed-top">
+<nav class="navbar navbar-fixed">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -39,7 +39,7 @@
               <%= form_tag date_path, class: "navbar-form navbar-date", method: :get do %>
               <%= text_field_tag :date_start, "Date de départ" %>
               <%= text_field_tag :date_end, "Date de retour" %>
-              <%= submit_tag "GO", class: "btn btn-primary btn-search" %>
+              <%= submit_tag "GO", class: "btn btn-primary btn-normal" %>
               <% end %>
             </ul>
           </li>

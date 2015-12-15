@@ -1,0 +1,39 @@
+<nav class="navbar navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      </button>
+      <%= link_to home_path, class: "navbar-brand" do %>
+      <%= image_tag "logo_staircaze.png" %>
+      <% end %>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav nav-logout">
+        <li><a href="#" data-toggle="modal" data-target="#myModal" class="nav-off">Inscription</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#myModal2" class="nav-off2">Connection</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <% if !user_signed_in? %>
+                <%= render '/devise/registrations/new', resource: @user, resource_name: @user %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <% if !user_signed_in? %>
+                <%= render '/devise/sessions/new', resource: @user, resource_name: @user %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+
+

@@ -10,10 +10,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if current_user %>
+  <%= render 'shared/navbar_login' %>
+  <% else %>
+  <%= render 'shared/navbar_logout' %>
+  <% end %>
 
-  <%= render 'shared/navbar' %>
-  <%= render 'shared/message' %>
     <%= yield %>
+    <%= render 'shared/message' %>
 <script>
   // $(".modal-backdrop").remove();
 </script>
