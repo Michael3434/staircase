@@ -1,11 +1,10 @@
 <nav class="navbar navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-      </button>
-      <%= link_to home_path, class: "navbar-brand" do %>
-      <%= image_tag "logo_staircaze.png" %>
-      <% end %>
+      <a href=" <%= root_path %>" class="navbar-brand nav-off-layout">
+        <%= image_tag "logo_staircaze.png" %>
+      </a>
+
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav nav-logout">

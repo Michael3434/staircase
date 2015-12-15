@@ -17,6 +17,25 @@
   float: right;
 }
 
+.navbar-brand {
+  img {
+    width: 200px;
+  }
+
+}
+.navbar-nav{
+  &.icon-login{
+    li{
+      &.open{
+        .dropdown-menu{
+          transform: translate(-30%);
+        }
+      }
+    }
+  }
+}
+
+
 .navbar-date {
   margin: 20px;
 }
@@ -39,11 +58,16 @@
 }
 
 .log-on {
-  float: right;
+  float: left;
 }
 
 .log-on > a {
   font-weigth: 600;
+}
+
+.icon-login {
+  margin-left: 20px;
+  float: right;
 }
 
 .dropdown-toggle:hover {

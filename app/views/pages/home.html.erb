@@ -1,22 +1,23 @@
 <div class="card-form row-margin">
-  <h2 class="form-title">Mon hall d'immeuble</h2>
-  <div class="col-md-12 text-center">
+  <div class="col-md-2 card-calendar">
+    <h2 class="text-center">Calendar</h2>
+    <% @events.each do |date, posts| %>
+    <label><%= date %></label>
+    <% posts.each do |post| %>
+    <p><%= post.title %></p>
+    <p>From : <%= post.user.first_name %></p>
+    <% end %><hr>
+    <% end %>
+  </div>
+    <div class="col-md-10 col-md-offset-2">
+      <h2 class="form-title">Mon hall d'immeuble</h2>
+    </div>
+  <div class="col-md-10 col-md-offset-2 text-center">
    <%= link_to "Poster une annonce", new_post_path(@post),:class=>"btn btn-normal" %>
   </div>
   <div class="col-md-12">
     <div class="row">
-      <div class="col-md-2 card-calendar">
-        <h2 class="text-center">Calendar</h2>
-        <% @events.each do |date, posts| %>
-        <label><%= date %></label>
-        <% posts.each do |post| %>
-        <p><%= post.title %></p>
-        <p>From : <%= post.user.first_name %></p>
-        <% end %><hr>
-        <% end %>
-
-      </div>
-      <div class="col-md-10">
+      <div class="col-md-10 col-md-offset-2">
         <div class="grid all-post">
           <% @posts.each do |post| %>
           <div class="grid-item">

@@ -1,15 +1,9 @@
 <nav class="navbar navbar-fixed">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to home_path, class: "navbar-brand" do %>
-      <%= image_tag "logo_staircaze.png" %>
-      <% end %>
+      <a href=" <%= home_path %>" class="navbar-brand nav-off-layout">
+        <%= image_tag "logo_staircaze_login.png" %>
+      </a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <% if(user_signed_in?) && current_user.apartment_users.length > 1 %>
@@ -45,7 +39,7 @@
           </li>
         </ul>
         <% end %>
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav icon-login">
           <% if(!user_signed_in?) %>
           <li><a href="#" data-toggle="modal" data-target="#myModal" class="nav-off">Inscription</a></li>
           <li><a href="#" data-toggle="modal" data-target="#myModal2" class="nav-off2">Connection</a></li>
