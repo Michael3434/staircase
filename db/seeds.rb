@@ -66,7 +66,8 @@ frederic = User.new(
            is_owner: true,
            is_syndic: false,
            is_renter: false,
-           is_pm: false
+           is_pm: false,
+           id_building_to_show:2
      )
    frederic.save
 
@@ -80,7 +81,8 @@ frederic = User.new(
         is_owner: false,
         is_syndic: true,
         is_renter: false,
-        is_pm: true
+        is_pm: true,
+        id_building_to_show:1
         )
 
 gardienne.save
@@ -204,6 +206,9 @@ user11 = user11.update(
   endnothere: "2016-01-04 09:27:36"
   )
 
+gardienne = User.last
+gardienne.apartments << apartments.first
+gardienne.save
 
 post1 = Post.new(
   title: "Désinsectisation générale",
