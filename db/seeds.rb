@@ -60,7 +60,7 @@ frederic = User.new(
            first_name: "Frederic",
            last_name:  "Nicolay",
            email:     "fredo@jmail.com",
-           password:  "azerty123",
+           password:  "qwertyuiop",
            phone_number:     "0505050505",
            show_phone: false,
            is_owner: true,
