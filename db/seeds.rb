@@ -112,6 +112,98 @@ building2 = Building.new(
 
 building2.save
 
+6.times do |x|
+building1.apartments.create(
+  apartment_floor: x,
+  apartment_ref: x.to_s+"0"+(1..3).to_a.sample.to_s,
+  )
+end
+
+5.times do |x|
+building1.apartments.create(
+  apartment_floor: x,
+  apartment_ref: x.to_s+"0"+(1..3).to_a.sample.to_s,
+  )
+end
+
+6.times do |x|
+building2.apartments.create(
+  apartment_floor: x,
+  apartment_ref: x.to_s+"0"+(1..3).to_a.sample.to_s,
+  )
+end
+
+users = User.all
+apartments = Apartment.all
+17.times do |i|
+  users[i].apartments << apartments[i]
+end
+
+user1 = users[0]
+user1 = user1.update(
+  startnothere: "2015-12-04 09:27:36",
+  endnothere: "2015-12-06 09:27:36"
+  )
+
+user2 = users[1]
+user2 = user2.update(
+  startnothere: "2015-12-24 09:27:36",
+  endnothere: "2016-01-03 09:27:36"
+  )
+
+user3 = users[2]
+user3 = user3.update(
+  startnothere: "2015-12-16 09:27:36",
+  endnothere: "2016-12-26 09:27:36"
+  )
+
+user4 = users[3]
+user4 = user4.update(
+  startnothere: "2015-12-19 09:27:36",
+  endnothere: "2016-12-31 09:27:36"
+  )
+
+user5 = users[4]
+user5 = user5.update(
+  startnothere: "2015-12-12 09:27:36",
+  endnothere: "2015-12-13 09:27:36"
+  )
+
+user6 = users[5]
+user6 = user6.update(
+  startnothere: "2015-12-24 09:27:36",
+  endnothere: "2015-12-27 09:27:36"
+  )
+
+user7 = users[6]
+user7 = user7.update(
+  startnothere: "2015-12-19 09:27:36",
+  endnothere: "2015-12-27 09:27:36"
+  )
+
+user8 = users[7]
+user8 = user8.update(
+  startnothere: "2015-12-19 09:27:36",
+  endnothere: "2015-12-27 09:27:36"
+  )
+
+user9 = users[8]
+user9 = user9.update(
+  startnothere: "2015-12-04 09:27:36",
+  endnothere: "2015-12-26 09:27:36"
+  )
+
+user10 = users[9]
+user10 = user10.update(
+  startnothere: "2015-12-23 09:27:36",
+  endnothere: "2016-01-27 09:27:36"
+  )
+
+user11 = users[10]
+user11 = user11.update(
+  startnothere: "2015-12-14 09:27:36",
+  endnothere: "2016-01-04 09:27:36"
+  )
 
 
 post1 = Post.new(
