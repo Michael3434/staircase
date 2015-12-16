@@ -13,8 +13,8 @@
           <% end %>
         </div>
       </div>
-
       <% @users.each_with_index do |user, index| %>
+      <% if !user.endnothere.nil? %>
       <div class="row">
         <div class="col-md-1 name">
           <%= user.first_name %>
@@ -26,6 +26,7 @@
           <% end %>
         </div>
       </div>
+      <% end %>
       <% end %>
     </div>
   </div>

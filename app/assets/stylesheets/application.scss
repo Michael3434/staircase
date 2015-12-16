@@ -10,6 +10,30 @@
 @import "calendar";
 @import "gsdk-base";
 
+#modifier {
+    background: #316D15 url(https://ssl.gstatic.com/s2/oz/images/quark/a7367650055ae3cf32ee3b7023c1ed88ic_create_wht_24dp.png) no-repeat center;
+    -webkit-background-size: 24px 24px;
+    background-size: 19px 19px;
+    border: none;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: inline-block;
+    height: 35px;
+    outline: none;
+    position: absolute;
+    text-align: center;
+    width: 35px;
+    z-index: 9999;
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    bottom: 30px;
+    right: 53px;
+}
+
+
 #user_email, #user_password {
     border-radius: 0;
     border: none;
@@ -50,7 +74,7 @@
 }
 
 .navbar-fixed {
-  background: rgba(191, 54, 12, 0.63);
+  background: #DB4437;
 }
 .navbar-fixed-top {
   background: rgba(255,255,255,0.4);
@@ -139,6 +163,10 @@ p {
     font-size: 14px;
     line-height: 1.218em;
     font-weight: 300;
+}
+
+h4 {
+  margin-top: 5px;
 }
 
 .avatar-small {

@@ -16,7 +16,11 @@
 }
 
 .card-calendar {
+  position: fixed;
   position: absolute;
+  width: 20%;
+  background-color: #fafafa;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
 }
 
 .avatar {
@@ -25,12 +29,22 @@
 
 .info-user {
   display: table-cell;
+  vertical-align: middle;
+  font-size: 14px;
+  line-height: 1.4;
+  padding-left: 10px;
+  text-rendering: auto;
+  font-weight: 400;
 }
 
 .span-user {
   display: table;
 }
+.time {
+    font-size: 12px;
+    font-style: italic;
 
+}
 
 .all-post {
   max-height: 500px;
