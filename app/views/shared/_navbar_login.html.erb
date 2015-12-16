@@ -62,11 +62,15 @@
             <i class="fa fa-building-o fa-lg"></i>&nbsp;Hall
             <% end %>
           </li>
-          <li>
-            <%= link_to sms_new_path do %>
-            <i class="fa fa-paper-plane"></i>&nbsp;SMS
-            <% end %>
-          </li>
+
+          <% if current_user.is_pm %>
+            <li>
+              <%= link_to sms_new_path do %>
+              <i class="fa fa-paper-plane"></i>&nbsp;SMS
+              <% end %>
+            </li>
+          <% end %>
+
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <%= image_tag "http://lorempixel.com/100/100/people", class: "img-circle avatar-small" %>&nbsp<%= current_user.first_name %><span class="caret"></span></a>
