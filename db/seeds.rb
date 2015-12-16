@@ -56,7 +56,6 @@ User.destroy_all
        p "#{user} Created"
     end
 
-
 frederic = User.new(
            first_name: "Frederic",
            last_name:  "Nicolay",
@@ -153,7 +152,6 @@ post3 = Post.new(
   id_building: 1,
 )
 post3.save
-
 
 post4 = Post.new(
   title: "Collecte solidaire d'habits - Emmaüs",
