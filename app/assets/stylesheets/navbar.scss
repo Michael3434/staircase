@@ -105,18 +105,19 @@
       }
     }
     .nav-off2 {
-      color: white;
+      color: #F4511E;
       font-weight: 600;
       padding: 8px 26px;
       font-size: 16px;
       border-radius: 20px;
-      border: 1px solid;
+      border: 1px solid white;
+      background: white;
       outline: none;
       &:focus{
-        background: none;
+        background: white;
       }
       &:hover {
-        background: none;
+        background: #FFDACF;
       }
     }
   }

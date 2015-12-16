@@ -88,6 +88,8 @@
 
 .blurred-container {
   .title {
+    position: absolute;
+      top: 150px;
     letter-spacing: 2px;
     margin: 0;
     position: relative;
@@ -186,4 +188,13 @@ h4 {
 .avatar-full {
   width: 100%;
   border: 1px solid white;
+}
+
+
+.inner-title{
+  background: rgba(0, 0, 0, 0.66);
+  float: left;
+  padding: 5px 10px 10px 10px;
+  border-radius: 5px;
+  text-transform: uppercase;
 }

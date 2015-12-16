@@ -336,4 +336,3 @@ post7 = Post.new(
     id_building: 2,
    )
    post10.save
->>>>>>> master
