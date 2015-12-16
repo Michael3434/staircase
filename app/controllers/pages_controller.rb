@@ -11,7 +11,7 @@ class PagesController < ApplicationController
 
   def landing
     @user = User.new
-      redirect_to home_path if current_user
+    redirect_to home_path if current_user
   end
 
   def search
