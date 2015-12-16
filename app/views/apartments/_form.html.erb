@@ -2,61 +2,62 @@
 <h1 class="text-center">Choisissez votre immeuble</h1>
 <br>
 
-  <%= form_for @apartment, :html => {:class => "text-center"} do |f| %>
+<%= form_for @apartment, :html => {:class => "text-center"} do |f| %>
 
-  <div class="row" id="building">
+<div class="row" id="building">
   <% @buildings.each_with_index do |building, index| %>
-    <div class="col-md-6 text-center">
-      <div class="building">
-        <%= f.radio_button :building_id, building.id, id: building.name, :onclick => "test(this);", :data => { :id => "password#{index}", password: building.building_password } %>
-        <label for="<%= building.name %>">
-          <div id="floor" class="circle-building" data-floornumber=<%= building.number_floor %>><i class="fa fa-building-o fa-4x icon-building"></i>
-      </div>
-          <h4><%= building.name %></h4>
-        </label>
-        <div class="row">
-          <div class="col-md-12">
-            <%= f.text_field :owner_id, id: "password#{index}", class: "form-control password#{index} hidden password", :data => { :id => "password#{index}"}, placeholder: "Mot de passe.." %>
-            <label onclick="button(this);" class="hidden password-text password<%= index %> button" id="button<%= index %>" data-id="password<%= index %>" data-valeur="<%= building.id %>">Cliquer ici pour vérifier</label>
-          </div>
+  <div class="col-md-6 text-center">
+    <div class="building">
+      <%= f.radio_button :building_id, building.id, id: building.name, :onclick => "test(this);", :data => { :id => "password#{index}", password: building.building_password } %>
+      <label for="<%= building.name %>">
+        <div id="floor" class="circle-building" data-floornumber=<%= building.number_floor %>><i class="fa fa-building-o fa-4x icon-building"></i>
         </div>
+        <h4><%= building.name %></h4>
+      </label>
+      <div class="row">
+        <div class="col-md-12">
+          <%= f.password_field :owner_id, id: "password#{index}", class: "form-control password#{index} hidden password", :data => { :id => "password#{index}"}, placeholder: "Mot de passe.." %>
+          <label onclick="button(this);" class="hidden password-text password<%= index %> button" id="button<%= index %>" data-id="password<%= index %>" data-valeur="<%= building.id %>">Cliquer ici pour vérifier</label>
         </div>
       </div>
-    <% end %>
-  </div><hr>
+    </div>
+  </div>
+  <% end %>
+</div><hr>
 
-  <div class="row">
-    <div class="col-md-6" id="all-floors"></div>
-    <div class="col-md-6" id="ref-status">
-      <div id="reference-flat"></div>
-      <div class="hidden" id="status-user">
-        <br>
-        <h3 class="title-status">Êtes-vous ?</h3>
-        <div class="col-md-6 status text-center">
-          <%= f.radio_button :resident_id, "locataire", id: "locataire" %>
+<div class="row">
+  <div class="col-md-6" id="all-floors"></div>
+  <div class="col-md-6" id="ref-status">
+    <div id="reference-flat"></div>
+    <div class="hidden" id="status-user">
+      <br>
+      <h3 class="title-status">Êtes-vous ?</h3>
+      <div class="col-md-6 status text-center">
+        <%= f.radio_button :resident_id, "locataire", id: "locataire" %>
         <label for="locataire">
           <div>Locataire</div>
-          </label>
-        </div>
-        <div class="col-md-6 status">
-          <%= f.radio_button :resident_id, "propriétaire", id: "propriétaire" %>
+        </label>
+      </div>
+      <div class="col-md-6 status">
+        <%= f.radio_button :resident_id, "propriétaire", id: "propriétaire" %>
         <label for="propriétaire">
           <div>Propriétaire</div>
-          </label>
-        </div>
-        </div>
-        </div>
-
-
-
+        </label>
+      </div>
     </div>
+  </div>
 
-  <%= f.submit "Submit", class: "btn btn-primary submit-form" %>
-  <% end %>
+
+
+</div>
+
+<%= f.submit "Submit", class: "btn btn-primary submit-form", id: "submit-apart" %>
+<% end %>
 
 <script>
 
 $(document).ready(function() {
+  $("#submit-apart").prop("disabled", true);
   $(window).keydown(function(event){
     if(event.keyCode == 13) {
       event.preventDefault();
@@ -65,33 +66,34 @@ $(document).ready(function() {
   });
 });
 
- var obj = {
+var obj = {
   "building": [
-    {
-      "id": 1,
-      "password": "paris"
-    },
-    {
-      "id": 2,
-      "password": "bruxelles"
-    }
- ]};
+  {
+    "id": 1,
+    "password": "paris"
+  },
+  {
+    "id": 2,
+    "password": "bruxelles"
+  }
+  ]};
 
-function test(d){
-   $('.floor-form').remove();
-   $('#title-floor').remove();
-  $(".button").addClass('hidden');
-  $(".password").addClass('hidden');
-  $("#" + $(d).data('id')).removeClass('hidden');
-  $("." + $(d).data('id')).removeClass('hidden');
-  $("#ref-status").addClass('hidden');
-}
+  function test(d){
+    $("#submit-apart").prop("disabled", true);
+    $('.floor-form').remove();
+    $('#title-floor').remove();
+    $(".button").addClass('hidden');
+    $(".password").addClass('hidden');
+    $("#" + $(d).data('id')).removeClass('hidden');
+    $("." + $(d).data('id')).removeClass('hidden');
+    $("#ref-status").addClass('hidden');
+  }
 
-function button(info_button){
- var input = $("." + $(info_button).data('id')).val();
- var id_building = $(info_button).data('valeur')
+  function button(info_button){
+   var input = $("." + $(info_button).data('id')).val();
+   var id_building = $(info_button).data('valeur')
 
-  for (var i = 0; i < obj.building.length; i++) {
+   for (var i = 0; i < obj.building.length; i++) {
 
     if(id_building == obj.building[i].id){
       if( input == obj.building[i].password){
@@ -108,14 +110,10 @@ function button(info_button){
       $(".button").removeClass('verify');
       $("." + $(info_button).data('id')).addClass('not-verify');
       $(".button").removeClass('not-verify');
-     }
+    }
   };
 
-
-
-
-
- }
+}
 
 
 function etage() {
@@ -126,33 +124,37 @@ function etage() {
   $('#all-floors').append("<h1 id='title-floor'>Votre Etage</h1>");
   for(var i = 0; i <= data; i++) {
     if (i % 2 == 0 || i == 0) {
-  var floor = $('#all-floors').append('<div class="floor-form col-md-2 col-md-offset-5 floor"><input id="' + i +'" type="radio" value="' + i +'" name="apartment[apartment_floor]"><label for="' + i +'" id="floor_number">' + i + '</label></div>').hide();
+      var floor = $('#all-floors').append('<div class="floor-form col-md-2 col-md-offset-5 floor"><input id="' + i +'" type="radio" value="' + i +'" name="apartment[apartment_floor]"><label for="' + i +'" id="floor_number">' + i + '</label></div>').hide();
     }
     else {
-    $('#all-floors').append('<div class="floor-form col-md-2 floor"><input id="' + i +'" type="radio" value="' + i +'"name="apartment[apartment_floor]"><label for="' + i +'" id="floor_number">' + i + '</label></div>');
+      $('#all-floors').append('<div class="floor-form col-md-2 floor"><input id="' + i +'" type="radio" value="' + i +'"name="apartment[apartment_floor]"><label for="' + i +'" id="floor_number">' + i + '</label></div>');
     }
-  floor.slideDown();
-  floor.show();
+    floor.slideDown();
+    floor.show();
   }
 }
 
+$("#all-floors").click(function() {
+  console.log("lol")
+  $('.reference-form').remove();
+  $('#title-reference').remove();
+  $("#ref-status").removeClass('hidden');
+  $('#reference-flat').append("<h1 id='title-reference'>Référence de votre logement</h1>")
+  var infoFlat = $('#reference-flat').append('<div class="reference-form col-md-8 col-md-offset-2"><input placeholder="Ascenseur gauche, Numero 303 etc..." class="form-control input-box" type="text" name="apartment[apartment_ref]" id="reference-flat"></div>').hide();
+  infoFlat.slideDown();
+  infoFlat.show();
+});
 
+$('#reference-flat').bind('input', function() {
 
-  $("#all-floors").click(function() {
-    console.log("lol")
-    $('.reference-form').remove();
-    $('#title-reference').remove();
-    $("#ref-status").removeClass('hidden');
-    $('#reference-flat').append("<h1 id='title-reference'>Référence de votre logement</h1>")
-    var infoFlat = $('#reference-flat').append('<div class="reference-form col-md-8 col-md-offset-2"><input placeholder="Ascenseur gauche, Numero 303 etc..." class="form-control input-box" type="text" name="apartment[apartment_ref]" id="reference-flat"></div>').hide();
-    infoFlat.slideDown();
-    infoFlat.show();
-  });
+  $("#status-user").removeClass('hidden')
+});
 
- $('#reference-flat').bind('input', function() {
+$('#status-user').click(function() {
+  $("#submit-apart").prop("disabled", false);
 
-    $("#status-user").removeClass('hidden')
-  });
+});
+
 
 
 </script>
