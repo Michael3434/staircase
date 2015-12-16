@@ -18,12 +18,7 @@ body{
    opacity: 1;
 }
 /*     General overwrite     */
-a{
-    color: #2C93FF;
-}
-a:hover, a:focus {
-    color: #1084FF;
-}
+
 a:focus, a:active,
 button::-moz-focus-inner,
 input[type="reset"]::-moz-focus-inner,
@@ -424,7 +419,6 @@ input.ct-red + span.switch-left, input.ct-red + span + label + span.switch-right
 }
 .navbar-nav > li > a {
     margin-top: 13px;
-    margin-bottom: 13px;
     padding-bottom: 12px;
     padding-top: 12px;
 }
@@ -1076,7 +1070,6 @@ input.ct-red + span.switch-left, input.ct-red + span + label + span.switch-right
 }
 .panel {
     border: 0;
-    border-bottom: 1px solid #CCCCCC;
     box-shadow: none;
 }
 .panel-default > .panel-heading {

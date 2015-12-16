@@ -1,4 +1,5 @@
 class AbsenceController < ApplicationController
+before_action :be_connected!
 before_action :is_pm
 
 @users = []
@@ -17,5 +18,11 @@ before_action :is_pm
     if current_user.is_pm.nil?
       redirect_to home_path, notice: "You don't have the permission :) "
     end
+  end
+
+  private
+
+  def be_connected!
+    redirect_to root_path if !user_signed_in?
   end
 end
