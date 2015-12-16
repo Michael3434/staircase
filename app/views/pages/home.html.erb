@@ -9,47 +9,65 @@
     <% end %><hr>
     <% end %>
   </div>
-    <div class="col-md-10 col-md-offset-2">
-      <h2 class="form-title">Mon hall d'immeuble</h2>
-    </div>
-  <div class="col-md-10 col-md-offset-2 text-center">
-   <%= link_to "Poster une annonce", new_post_path(@post),:class=>"btn btn-normal" %>
-  </div>
-  <div class="col-md-12">
-    <div class="row">
-      <div class="col-md-10 col-md-offset-2">
-        <div class="grid all-post">
-          <% @posts.each do |post| %>
-          <div class="grid-item">
-            <div class="header text-center">
-              <div class="avatar"><%= image_tag "http://lorempixel.com/100/100/people", class: "img-circle avatar-medium" %></div>
-              <div class="info-user">
-                <span class="span-user">De <%= post.user.first_name %></span>
-                <span class="span-user">le <%= post.message_time %></span>
-              </div>
-            </div>
-            <div class="content">
-              <h3><%= post.title %></h3>
-              <p><%= post.content %></p>
-              <p><%= post.date %></p>
-              </div>
-              <div class="pull-right icon-post">
-              <% if current_user && post.user == current_user %>
-                <%= link_to edit_post_path(post) do %>
-                <i class="fa fa-pencil-square-o fa-2x"></i>
-                <% end %>
-              <% end %>
 
-              <% if current_user && post.user == current_user %>
-                <%= link_to post, method: :delete, data: { confirm: 'Supprimez cette annonce ?' } do %>
-                  <i class="fa fa-times fa-2x"></i>
-                <% end %>
-              <% end %>
-           </div>
+
+    <div class="col-md-10 col-md-offset-2">
+
+    </div>
+
+
+
+
+
+      <div class="col-md-10 col-md-offset-2">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+
+            <div class="text-center">
+              <h2 class="form-title">Mon hall d'immeuble</h2>
+             <%= link_to "Poster une annonce", new_post_path(@post),:class=>"btn btn-normal" %>
+            </div>
+
+            <div class="grid all-post">
+            <% @posts.each do |post| %>
+
+            <div class="grid-item">
+              <div class="item-content">
+                <div class="header text-center">
+                  <div class="avatar"><%= image_tag "http://lorempixel.com/100/100/people", class: "img-circle avatar-medium" %></div>
+                  <div class="info-user">
+                    <span class="span-user">De <%= post.user.first_name %></span>
+                    <span class="span-user">le <%= post.message_time %></span>
+                  </div>
+                </div>
+                <div class="content">
+                  <h4><%= post.title %></h4>
+                  <p><%= post.content %></p>
+                  <p><%= post.date %></p>
+                  </div>
+                  <div class="pull-right icon-post">
+                  <% if current_user && post.user == current_user %>
+                    <%= link_to edit_post_path(post) do %>
+                    <i class="fa fa-pencil-square-o fa-2x"></i>
+                    <% end %>
+                  <% end %>
+
+                  <% if current_user && post.user == current_user %>
+                    <%= link_to post, method: :delete, data: { confirm: 'Supprimez cette annonce ?' } do %>
+                      <i class="fa fa-times fa-2x"></i>
+                    <% end %>
+                  <% end %>
+                  </div>
+                </div>
+              </div>
+
+            <% end %>
+            </div>
+
+
+
           </div>
-          <% end %>
         </div>
       </div>
     </div>
-  </div>
 </div>
