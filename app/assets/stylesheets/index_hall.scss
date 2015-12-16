@@ -77,11 +77,70 @@ max-width: 1200px;
     padding: 0px;
     color: #212121;
     font-weight: 600;
-    overflow: hidden;
     box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
 
     .header {
       padding: 10px;
+      position: relative;
+    }
+
+    .job {
+    position: absolute;
+    background: url("job.png") no-repeat center;
+    -webkit-background-size: 24px 24px;
+    background-size: 35px 39px;
+    cursor: pointer;
+    display: inline-block;
+    height: 50px;
+    outline: none;
+    position: absolute;
+    text-align: center;
+    width: 50px;
+    z-index: 9999;
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    bottom: 11px;
+    right: 13px;
+    }
+
+    .info {
+    position: absolute;
+    -webkit-background-size: 24px 24px;
+    background-size: 35px 39px;
+    cursor: pointer;
+    display: inline-block;
+    height: 50px;
+    outline: none;
+    position: absolute;
+    text-align: center;
+    width: 50px;
+    z-index: 99;
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    bottom: 11px;
+    right: 13px;
+    }
+
+    .fade {
+      left: 0;
+      z-index: 9999;
+    }
+
+
+    .vie-admin {
+
+    }
+
+    .travaux {
+
+    }
+
+    .event {
+
+    }
+
+    .service {
+
     }
 
     .content {

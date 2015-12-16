@@ -6,6 +6,7 @@ class PagesController < ApplicationController
     @building_id = current_user.id_building_to_show
     @posts = Post.all.where(id_building: @building_id)
     get_event
+    @building = Building.find(current_user.id_building_to_show)
 
   end
 

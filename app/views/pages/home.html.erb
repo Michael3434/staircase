@@ -14,7 +14,7 @@
           <div class="col-md-10 col-md-offset-1">
 
             <div class="text-center">
-              <h2 class="form-title">Mon hall d'immeuble </h2>
+              <h2 class="form-title">Mon hall d'immeuble <br> <%= @building.address %> </h2>
              <%= link_to "Poster une annonce", new_post_path(@post),:class=>"btn btn-normal btn-annonce" %>
 
             </div>
@@ -25,6 +25,7 @@
             <div class="grid-item">
               <div class="item-content">
                 <div class="header text-center">
+                  <i class="job" data-toggle="popover" data-content="ok" ></i>
                   <div class="avatar"><%= image_tag "http://lorempixel.com/100/100/people", class: "img-circle avatar-medium" %></div>
                   <div class="info-user">
                     <span class="span-user"><%= post.user.first_name %> <%= post.user.last_name %></span>
@@ -84,4 +85,8 @@ $(function(){ // document ready
   }
 
 });
-</script>
+
+$(document).ready(function(){
+
+    $('[data-toggle="popover"]').popover({trigger: "hover"});
+});</script>
