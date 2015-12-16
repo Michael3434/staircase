@@ -33,7 +33,7 @@
           <%= link_to edit_apartment_path(apartment) do %>
           <i class="fa fa-pencil-square-o fa-lg"></i>
           <% end %>
-          <%= link_to apartment_path(apartment), method: :delete, data: { confirm: 'Supprimez cet appartement ?' } do %>
+          <%= link_to apartment_path(apartment.apartment_id), method: :delete, data: { confirm: 'Supprimez cet appartement ?' } do %>
           <i class="fa fa-times fa-lg"></i>
           <% end %>
         </div>
