@@ -242,7 +242,7 @@ post2.save
 
 post3 = Post.new(
   title: "Dîner - Anniversaire de 40 ans",
-  post_type: "Vie de l'immeuble",
+  post_type: "Vie de l'immeuble / Événement",
   content: "A l'occasion de l'anniversaire des 40 ans de mon mari, j'organise un dîner avec une trentaine de personnes vendredi soir. Je vous prie de nous excuser pour la gêne occasionnée. Si certains d'entre-vous veulent venir, vous êtes les bienvenus. Les festivités commenceront à 19h00.
   Merci d'avance pour votre compréhension.",
   user_id: User.all.sample.id,
