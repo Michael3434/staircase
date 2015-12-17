@@ -65,7 +65,7 @@
                   <div class="row">
                     <%= form_tag comment_new_path, class: "form-group", method: :get, remote: true do %>
                     <div class="col-md-9">
-                      <%= image_tag "http://lorempixel.com/100/100/people", class: "img-circle avatar-small avatar-comment" %>
+                      <%= image_tag "profil#{current_user.id}", class: "img-circle avatar-small avatar-comment" %>
                       <%= text_area_tag :content, "", class: "form-control", id: "comment-text" %>
                       <%= hidden_field_tag :post_id, params[:post_id], value: post.id %>
                     </div>
@@ -73,7 +73,7 @@
                       <%= submit_tag "OK", class: "btn-comment" %>
                     </div>
                     <% end %>
-                    <a data-post=<%= post.id %> onClick="papa(this);"> click-moi cousin </a>
+                    <!-- <a data-post=<%= post.id %> onClick="papa(this);"> click-moi cousin </a> -->
                   </div>
 
                   <div id="<%= post.id %>">

@@ -19,7 +19,14 @@
     <%= yield %>
     <%= render 'shared/message' %>
 <script>
-  // $(".modal-backdrop").remove();
+
+$(document).ready(function(){
+
+  toastr.options = {
+                      "positionClass": "toast-bottom-full-width"
+  }
+});
+
 </script>
 </body>
 </html>

@@ -1,8 +1,8 @@
 
     <div class="panel-body panel-comment-body">
-      <%= image_tag "http://lorempixel.com/100/100/people", class: "img-circle avatar-small" %>
+      <%= image_tag "profil#{comment.user_id}", class: "img-circle avatar-small" %>
       <strong><%= comment.user.first_name %></strong>
-      <span class="pull-right"><%= time_ago_in_words(comment.created_at) %></span>
+      <p class="pull-right time"><%= time_ago_in_words(comment.created_at) %></p>
       <br>
       <div class="row-space-2">
         <%= comment.content %>
