@@ -1,5 +1,5 @@
   <div class="col-md-2 card-calendar sticky">
-    <h2 class="text-center">Calendar</h2>
+    <h2 class="text-center">Calendrier</h2>
     <% @events.each do |date, posts| %>
     <label><%= date %></label>
     <% posts.each do |post| %>
@@ -15,7 +15,7 @@
 
             <div class="text-center">
               <h2 class="form-title">Mon hall d'immeuble <br> <span class="address-title"><%= @building.address %> </span></h2>
-             <%= link_to "Poster une annonce", new_post_path(@post),:class=>"btn btn-normal btn-annonce" %>
+             <%= link_to "Publier une annonce", new_post_path(@post),:class=>"btn btn-normal btn-annonce" %>
 
             </div>
 
@@ -42,7 +42,7 @@
                   <div class="avatar"><%= image_tag "http://lorempixel.com/100/100/people", class: "img-circle avatar-medium" %></div>
                   <div class="info-user">
                     <span class="span-user"><%= post.user.first_name %> <%= post.user.last_name %></span>
-                    <span class="span-user time">le <%= post.message_time.downcase %></span>
+                    <span class="span-user time">Le <%= post.message_time.downcase %></span>
                   </div>
                 </div>
                 <div class="content">
