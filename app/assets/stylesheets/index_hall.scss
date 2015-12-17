@@ -97,7 +97,7 @@ max-width: 1200px;
 
     .job {
     position: absolute;
-    background: url("job.png") no-repeat center;
+    background: image-url("job.png") no-repeat center;
     -webkit-background-size: 24px 24px;
     background-size: 35px 39px;
     cursor: pointer;
@@ -122,7 +122,7 @@ max-width: 1200px;
 
     .vie-admin {
     position: absolute;
-    background: url("vie-admin.png") no-repeat center;
+    background: image-url("vie-admin.png") no-repeat center;
     -webkit-background-size: 24px 24px;
     background-size: 35px 39px;
     cursor: pointer;
@@ -142,7 +142,7 @@ max-width: 1200px;
 
     .travaux {
     position: absolute;
-    background: url("travaux.png") no-repeat center;
+    background: image-url("travaux.png") no-repeat center;
     -webkit-background-size: 24px 24px;
     background-size: 35px 39px;
     cursor: pointer;
@@ -162,7 +162,7 @@ max-width: 1200px;
 
     .event {
     position: absolute;
-    background: url("event.png") no-repeat center;
+    background: image-url("event.png") no-repeat center;
     -webkit-background-size: 24px 24px;
     background-size: 35px 39px;
     cursor: pointer;
@@ -182,7 +182,7 @@ max-width: 1200px;
 
     .service {
     position: absolute;
-    background: url("service.png") no-repeat center;
+    background: image-url("service.png") no-repeat center;
     -webkit-background-size: 24px 24px;
     background-size: 35px 39px;
     cursor: pointer;
