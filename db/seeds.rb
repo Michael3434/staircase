@@ -292,7 +292,7 @@ post6 = Post.new(
 post6.save
 
 post7 = Post.new(
-    title: "Fete des voisins ! ",
+    title: "Fête des voisins ! ",
     post_type: "Vie de l'immeuble",
     content: "Voisins, voisines ! Vous êtes toutes et tous convié(e)s à notre fête des voisins. Nous nous retrouverons comme chaque année au bord de l'étang. Thème de la fête: BUNGA BUNGA !",
     user_id: User.all.sample.id,
