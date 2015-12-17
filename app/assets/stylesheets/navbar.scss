@@ -17,8 +17,13 @@
   float: right;
 }
 
+
+
 .navbar-brand {
   img {
+    width: 45px;
+  }
+  .img-logout {
     width: 200px;
   }
 
@@ -34,6 +39,36 @@
     }
   }
 }
+
+
+
+.navbar-nav > li > a {
+  color: #212121;
+  font-size: 14px;
+  &:hover {
+    background: none;
+    color: #666666;
+  }
+}
+
+.border-bot {
+  border-bottom: 2px solid;
+  border-color:  #E9625B;
+}
+
+#navbar {
+  .log-on{
+  float: right;
+  }
+  .perso-drop {
+    float: right;
+  }
+  .icon-login {
+    float: left;
+  }
+}
+
+
 
 
 .navbar-date {
@@ -55,10 +90,6 @@
 
 .navbar-date {
   margin-bottom: 0px;
-}
-
-.log-on {
-  float: left;
 }
 
 .log-on > a {

@@ -58,19 +58,25 @@
           <% end %>
           <% end %>
           <li>
-            <%= link_to home_path do %>
-            <i class="fa fa-building-o fa-lg"></i>&nbsp;Hall
+            <%= link_to home_path, class: (current_page?(home_path) ? 'border-bot' : '') do %>
+            <i class="fa fa-building-o fa-lg"></i>&nbsp;Votre hall
+            <% end %>
+          </li>
+          <li>
+            <% if current_user.is_pm %>
+              <%= link_to absence_path, class: (current_page?(absence_path) ? 'border-bot' : '') do %>
+                <i class="fa fa-calendar fa-lg"></i>&nbsp;Calendrier vacances
+              <% end %>
             <% end %>
           </li>
 
-          <% if current_user.is_pm %>
-            <li>
-              <%= link_to sms_new_path do %>
-              <i class="fa fa-paper-plane"></i>&nbsp;SMS
-              <% end %>
-            </li>
-          <% end %>
-
+          <li>
+            <%= link_to sms_new_path, class: (current_page?(sms_new_path) ? 'border-bot' : '') do %>
+            <i class="fa fa-paper-plane"></i>&nbsp;SMS
+            <% end %>
+          </li>
+          </ul>
+          <ul class="nav navbar-nav perso-drop">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <%= image_tag "http://lorempixel.com/100/100/people", class: "img-circle avatar-small" %>&nbsp<%= current_user.first_name %><span class="caret"></span></a>
@@ -88,23 +94,26 @@
     </nav>
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <% if !user_signed_in? %>
-                <%= render '/devise/registrations/new', resource: @user, resource_name: @user %>
-                <% end %>
-              </div>
-            </div>
-          </div>
-          <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <% if !user_signed_in? %>
-                <%= render '/devise/sessions/new', resource: @user, resource_name: @user %>
-                <% end %>
-              </div>
-            </div>
-          </div>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <% if !user_signed_in? %>
+          <%= render '/devise/registrations/new', resource: @user, resource_name: @user %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <% if !user_signed_in? %>
+          <%= render '/devise/sessions/new', resource: @user, resource_name: @user %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+
 
     <script>
     $('#date_start').datepicker({
@@ -113,6 +122,10 @@
     $('#date_end').datepicker({
       dateFormat: 'dd-mm-yy'
     });
+
+    $('#calendar').click(function(){
+      $('#calendar').addClass('border-bot');
+    })
     </script>
 
 

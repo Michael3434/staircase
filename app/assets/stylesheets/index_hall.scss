@@ -15,6 +15,17 @@
 
 }
 
+.address-title {
+
+}
+
+#delete {
+    position: absolute;
+    bottom: 32px;
+    right: 20px;
+    color: #E64A19;
+}
+
 .card-calendar {
   position: fixed;
   position: absolute;
@@ -103,8 +114,15 @@ max-width: 1200px;
     right: 13px;
     }
 
-    .info {
+    .fade {
+      left: 0;
+      z-index: 9999;
+    }
+
+
+    .vie-admin {
     position: absolute;
+    background: url("vie-admin.png") no-repeat center;
     -webkit-background-size: 24px 24px;
     background-size: 35px 39px;
     cursor: pointer;
@@ -114,37 +132,77 @@ max-width: 1200px;
     position: absolute;
     text-align: center;
     width: 50px;
-    z-index: 99;
+    z-index: 9999;
     -webkit-transform: rotateY(0deg);
     transform: rotateY(0deg);
     bottom: 11px;
     right: 13px;
-    }
-
-    .fade {
-      left: 0;
-      z-index: 9999;
-    }
-
-
-    .vie-admin {
 
     }
 
     .travaux {
+    position: absolute;
+    background: url("travaux.png") no-repeat center;
+    -webkit-background-size: 24px 24px;
+    background-size: 35px 39px;
+    cursor: pointer;
+    display: inline-block;
+    height: 50px;
+    outline: none;
+    position: absolute;
+    text-align: center;
+    width: 50px;
+    z-index: 9999;
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    bottom: 11px;
+    right: 13px;
 
     }
 
     .event {
+    position: absolute;
+    background: url("event.png") no-repeat center;
+    -webkit-background-size: 24px 24px;
+    background-size: 35px 39px;
+    cursor: pointer;
+    display: inline-block;
+    height: 50px;
+    outline: none;
+    position: absolute;
+    text-align: center;
+    width: 50px;
+    z-index: 9999;
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    bottom: 11px;
+    right: 13px;
 
     }
 
     .service {
+    position: absolute;
+    background: url("service.png") no-repeat center;
+    -webkit-background-size: 24px 24px;
+    background-size: 35px 39px;
+    cursor: pointer;
+    display: inline-block;
+    height: 50px;
+    outline: none;
+    position: absolute;
+    text-align: center;
+    width: 50px;
+    z-index: 9999;
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    bottom: 11px;
+    right: 13px;
 
     }
 
     .content {
           padding: 15px 15px;
+          position: relative;
     }
 
   }

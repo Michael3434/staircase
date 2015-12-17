@@ -14,7 +14,7 @@
           <div class="col-md-10 col-md-offset-1">
 
             <div class="text-center">
-              <h2 class="form-title">Mon hall d'immeuble <br> <%= @building.address %> </h2>
+              <h2 class="form-title">Mon hall d'immeuble <br> <span class="address-title"><%= @building.address %> </span></h2>
              <%= link_to "Poster une annonce", new_post_path(@post),:class=>"btn btn-normal btn-annonce" %>
 
             </div>
@@ -25,7 +25,20 @@
             <div class="grid-item">
               <div class="item-content">
                 <div class="header text-center">
-                  <i class="job" data-toggle="popover" data-content="ok" ></i>
+                  <i class="
+                              <%= 'travaux' if post.post_type == 'Travaux / Entretien' %>
+                              <%= 'job' if post.post_type == 'Emploi' %>
+                              <%= 'event' if post.post_type == "Vie de l'immeuble / Événement" %>
+                              <%= 'service' if post.post_type == "Services entre voisins" %>
+                              <%= 'vie-admin' if post.post_type == 'Vie adminitrative' %>
+                            "
+                              data-toggle="popover" data-content="
+                                                                  <%= 'Travaux / Entretien' if post.post_type == 'Travaux / Entretien' %>
+                                                                  <%= 'Emploi' if post.post_type == 'Emploi' %>
+                                                                  <%= "Vie de l'immeuble / Événement" if post.post_type == "Vie de l'immeuble / Événement" %>
+                                                                  <%= "Services entre voisins" if post.post_type == "Services entre voisins" %>
+                                                                  <%= 'Vie adminitrative' if post.post_type == 'Vie adminitrative' %>
+                              " ></i>
                   <div class="avatar"><%= image_tag "http://lorempixel.com/100/100/people", class: "img-circle avatar-medium" %></div>
                   <div class="info-user">
                     <span class="span-user"><%= post.user.first_name %> <%= post.user.last_name %></span>
@@ -38,17 +51,17 @@
                   <p><%= post.date %></p>
                   </div>
                   <div class="pull-right icon-post" >
-                  <% if current_user && post.user == current_user %>
-                    <%= link_to edit_post_path(post) do %>
-                    <i id="modifier"></i>
+                    <% if current_user && post.user == current_user %>
+                      <%= link_to edit_post_path(post) do %>
+                      <i id="modifier"></i>
+                      <% end %>
                     <% end %>
-                  <% end %>
 
-                  <% if current_user && post.user == current_user %>
-                    <%= link_to post, method: :delete, data: { confirm: 'Supprimez cette annonce ?' } do %>
-                      <i class="fa fa-times fa-2x " id="delete"></i>
+                    <% if current_user && post.user == current_user %>
+                      <%= link_to post, method: :delete, data: { confirm: 'Supprimez cette annonce ?' } do %>
+                        <i class="fa fa-times fa-2x " id="delete"></i>
+                      <% end %>
                     <% end %>
-                  <% end %>
                   </div>
                 </div>
               </div>
