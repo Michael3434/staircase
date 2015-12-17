@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :omniauthable
 
 
-
+  has_many :comments
   has_many :messages
   has_many :posts
   has_many :apartment_users, dependent: :destroy

@@ -22,6 +22,8 @@ resources :apartments
 
   get '/date' => 'pages#date'
 
+  get '/comment/new' => 'comments#create'
+
   get '/absence' => 'absence#people_absent'
 
 

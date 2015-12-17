@@ -1,0 +1,5 @@
+var new_message = $("<%= j render 'comments/comments', comment: @comment %>").hide();
+
+  $('#<%= @post_id %>').prepend(new_message);
+  new_message.slideDown();
+  $('#new_message').val('');
