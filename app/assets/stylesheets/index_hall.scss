@@ -14,16 +14,74 @@
     margin-top: 0;
 
 }
+.row-space-2 {
+    border-bottom: 1px solid #eee;
+    margin-left: 31px;
+    font-weight: 300;
+    padding-bottom: 5px;
 
-.address-title {
+}
+
+.btn-comment {
+    border-radius: 0px;
+    border: 1px solid #E64A19;
+    padding: 0px 20px;
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+    margin-top: -10px;
+    background-color: #E64A19;
+}
+
+.avatar-comment {
+    position: absolute;
+    left: 40px;
+    top: 3px;
+    border-radius: 0;
+}
+
+.close-comment {
+  color: #333333;
+  margin-left: 60px;
+  text-decoration: underline;
+}
+
+#open-comment {
+  color: #333333;
+  margin-left: 60px;
+  text-decoration: underline;
+
+}
+
+.panel-comment {
+   margin-bottom: 0;
+}
+
+#comment-text {
+    border-color: #dcdee3;
+    min-height: 32px;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    display: inline-block;
+    border: solid1px#000;
+    height: 38px;
+    width: 88%;
+    border-radius: 0px;
+    margin-left: 61px;
+
+}
+
+.panel-comment-body {
+padding-bottom: 0;
 
 }
 
 #delete {
-    position: absolute;
-    bottom: 32px;
-    right: 20px;
     color: #E64A19;
+    top: 86px;
+    right: 17px;
+
+    position: absolute;
 }
 
 .card-calendar {
@@ -59,6 +117,10 @@
 
 .all-post {
   max-height: 500px;
+}
+
+.modal-user {
+  color: black;
 }
 
 .icon-post {

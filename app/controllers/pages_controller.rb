@@ -3,8 +3,9 @@ class PagesController < ApplicationController
   before_action :apartment_user?, except: [:landing]
 
   def home
+    @comment = Comment.new
     @building_id = current_user.id_building_to_show
-    @posts = Post.all.where(id_building: @building_id)
+    @posts = Post.all.where(id_building: @building_id).reverse
     get_event
     @building = Building.find(current_user.id_building_to_show)
 
