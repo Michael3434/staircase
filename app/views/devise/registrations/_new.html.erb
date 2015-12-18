@@ -7,6 +7,10 @@
       <%= render 'shared/devisemes', resource: @user %>
 
       <div class="form-group">
+        <%= f.text_field :first_name, class: "form-control", placeholder: "Votre prénom" %>
+      </div>
+
+      <div class="form-group">
         <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
       </div>
 

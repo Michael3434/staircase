@@ -114,7 +114,7 @@ $(function(){ // document ready
         $('.sticky').css({ position: 'fixed', top: 0 });
       }
       else {
-        $('.sticky').css({ position: 'fixed', top: 67-(windowTop) });
+        $('.sticky').css({ position: 'fixed', top: 0-(windowTop) });
       }
 
     });
@@ -122,6 +122,10 @@ $(function(){ // document ready
   }
 
 });
+
+setTimeout(function(){
+   window.location.reload(1);
+}, 5000);
 
 
 function papa(elem) {

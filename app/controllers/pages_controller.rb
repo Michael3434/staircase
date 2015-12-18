@@ -11,6 +11,14 @@ class PagesController < ApplicationController
 
   end
 
+  def hallparis
+    @comment = Comment.new
+    @building_id = Building.find(1).id
+    @posts = Post.all.where(id_building: @building_id).reverse
+    get_event
+    @building = Building.find(1)
+  end
+
   def landing
     @user = User.new
     redirect_to home_path if current_user
