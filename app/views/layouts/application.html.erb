@@ -10,16 +10,29 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if current_user %>
-  <%= render 'shared/navbar_login' %>
-  <% else %>
-  <%= render 'shared/navbar_logout' %>
-  <% end %>
 
+  <% if !current_page?(hallparis_path) %>
+    <% if current_user %>
+      <%= render 'shared/navbar_login' %>
+      <% else %>
+      <%= render 'shared/navbar_logout' %>
+    <% end %>
     <%= yield %>
+    <% else %>
+     <%= yield %>
+  <% end %>
     <%= render 'shared/message' %>
+
 <script>
-  // $(".modal-backdrop").remove();
+
+$(document).ready(function(){
+
+  toastr.options = {
+                      "positionClass": "toast-bottom-full-width"
+  }
+});
+
 </script>
+
 </body>
 </html>

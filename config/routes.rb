@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 resources :apartments
 
   get '/home', to: 'pages#home'
+  get '/hallparis', to: 'pages#hallparis'
+
   resources :conversations, only: [:index, :create] do
     resources :messages, only: [:index, :create]
   end

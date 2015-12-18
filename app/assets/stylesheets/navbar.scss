@@ -17,7 +17,9 @@
   float: right;
 }
 
-
+#drop-profil {
+  margin-top: 10px;
+}
 
 .navbar-brand {
   img {
@@ -75,6 +77,10 @@
   margin: 20px;
 }
 
+.btn-switch {
+    font-size: 12px!important;
+    margin: 10px 10px!important;
+}
 
 .button-switch {
   margin: 0px ;
@@ -85,7 +91,6 @@
 
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus{
   background-color: transparent;
-  color: white;
 }
 
 .navbar-date {

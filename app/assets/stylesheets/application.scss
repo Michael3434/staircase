@@ -29,7 +29,7 @@
     z-index: 9999;
     -webkit-transform: rotateY(0deg);
     transform: rotateY(0deg);
-    top: 84px;
+    top: 63px;
     right: 49px;
 }
 
@@ -155,9 +155,23 @@ a {
     background-image: image-url('verredesky.jpg')
 
 }
+.cards {
+  background-color: #FAFAFA;
+}
+
+.pilier {
+  margin: 30px 0;
+  font-size: 15px;
+}
+
+.card-icon {
+    margin-bottom: 50px;
+    padding-top: 30px;
+    border: 1px solid #eee;
+}
 
 .space{
-    height: 130px;
+    height: 70px;
     display: block;
 }
 
@@ -182,10 +196,12 @@ h4 {
 .avatar-small {
   width: 28px;
   border: 1px solid white;
+  height: 30px;
 }
 .avatar-medium {
   width: 48px;
  border: 1px solid white;
+  height: 46px;
 }
 
 .avatar-large {
