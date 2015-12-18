@@ -37,9 +37,10 @@
 #user_email, #user_password {
     border-radius: 0;
     border: none;
-    border-bottom: 2px solid #00c7ff;
+    border-bottom: 2px solid #F4511E;
     background-color: transparent;
 }
+
 .message_info {
     position: relative;
     bottom: 0px;
@@ -68,9 +69,11 @@
 
 
 .btn-log {
-  border-color: #00c7ff;
-  color: #8C97A0;
+  border-color: #F4511E;
+  color: white;
   padding: 5px 20px;
+  border-radius: 0px;
+  background-color: #F4511E;
 }
 
 .nav-off-layout {
@@ -124,7 +127,8 @@ body{
   background-color: #EEEEEE;
 }
 .modal-content {
-    padding: 30px;
+    padding: 34px;
+    border-radius: 0;
 }
 
 a {
