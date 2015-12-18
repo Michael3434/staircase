@@ -39,7 +39,7 @@
                                                                   <%= "Services entre voisins" if post.post_type == "Services entre voisins" %>
                                                                   <%= 'Vie adminitrative' if post.post_type == 'Vie adminitrative' %>
                               " ></i>
-                  <div class="avatar"><%= image_tag "profil#{post.user_id}", class: "img-circle avatar-medium" %></div>
+                  <div class="avatar"><%= image_tag "profil#{post.user_id}.jpg", class: "img-circle avatar-medium" %></div>
                   <div class="info-user">
                     <span class="span-user"><%= post.user.first_name %> <%= post.user.last_name %></span>
                     <span class="span-user time"> <%= time_ago_in_words(post.created_at)%> ago </span>
@@ -65,7 +65,7 @@
                   <div class="row">
                     <%= form_tag comment_new_path, class: "form-group", method: :get, remote: true do %>
                     <div class="col-md-9">
-                      <%= image_tag "profil#{current_user.id}", class: "img-circle avatar-small avatar-comment" %>
+                      <%= image_tag "profil#{current_user.id}.jpg", class: "img-circle avatar-small avatar-comment" %>
                       <%= text_area_tag :content, "", class: "form-control", id: "comment-text" %>
                       <%= hidden_field_tag :post_id, params[:post_id], value: post.id %>
                     </div>
