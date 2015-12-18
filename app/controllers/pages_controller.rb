@@ -13,10 +13,10 @@ class PagesController < ApplicationController
 
   def hallparis
     @comment = Comment.new
-    @building_id = Building.find(1).id
+    @building_id = Building.find(2).id
     @posts = Post.all.where(id_building: @building_id).reverse
     get_event
-    @building = Building.find(1)
+    @building = Building.find(2)
   end
 
   def landing
