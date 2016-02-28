@@ -16,11 +16,13 @@ gem 'sass-rails', '>= 3.2'
 gem 'toastr-rails'
 gem 'faker'
 
+gem 'simple_form'
+
 gem "figaro"
 gem 'font-awesome-sass'
-gem 'twilio-ruby', '~> 4.2.1'
+gem 'twilio-ruby', '~> 4.11.1'
 
-ruby '2.2.3'
+ruby '2.2.0'
 gem 'rails_12factor', group: :production
 gem 'puma',           group: :production
 

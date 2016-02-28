@@ -1,41 +1,9 @@
 <div class="row card-form row-margin">
   <h2 class="form-title">Envoyer un message</h2>
   <div class="col-md-8 col-md-offset-2">
-    <div class="row">
-      <div class="col-md-12">
-      <%= form_tag sms_create_path, class: "text-center form-horizontal", id: "register_form", method: :get %>
-
-          <div class="form-group form-box" id="post-type" >
-            <label class="label-message col-sm-6 control-label">Type de message</label>
-            <%= select_tag "test", options_for_select(["Vie administrative","Travaux / Entretien","Vie de l'immeuble / Événement", "Services entre voisins", "Emploi"]), prompt: "Quel type de message voulez-vous envoyer ?", class: "form-control input-box" %>
-          </div>
-
-          <div class="form-group form-box" id="post-type">
-            <label class="label-message col-sm-6 control-label">SMS</label>
-            <%= text_area_tag 'body', nil, size: "120x10" %>
-            <br>
-          </div>
-          <%= submit_tag "Envoyer", class: "pull-right", id: "btn-submit" %>
-      </div>
-    </div>
+    <%= simple_form_for @sms, url: sms_new_path do |f| %>
+      <%= f.input :content, label: false %>
+      <%= f.submit "Envoyer", id: "btn-submit" %>
+    <% end %>
   </div>
 </div>
-zz
-<script>
-  $( "#show-date" ).click(function() {
-  console.log("lol");
-  $( "#post-date" ).slideDown();
-  $( "#post-date" ).removeClass('hidden');
-  });
-
-  $( "#preview-type" ).click(function() {
-  $( "#post-title" ).slideUp();
-  $( "#post-title" ).addClass('hidden');
-
-
-});
-
-   $('#post_date').datepicker({
-          dateFormat: 'dd-mm-yy'
-    });
-</script>
