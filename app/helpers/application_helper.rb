@@ -7,7 +7,8 @@ module ApplicationHelper
     "https://s.gravatar.com/avatar/#{gravatar_id}?s=150"
     end
   end
-    def resource_name
+
+  def resource_name
     :user
   end
 
@@ -17,5 +18,9 @@ module ApplicationHelper
 
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
+  end
+
+  def generate_button
+    ["Plombier", "Electricien", "Coupure d'eau", "Coupure d'électricité"]
   end
 end

@@ -3,9 +3,13 @@ Rails.application.routes.draw do
   get 'sms/new'
   get 'sms/create'
 
+
+  get 'email/new'
+  get 'email/create'
+
   resources :appointments, only: [:new, :create]
   resources :posts
-resources :apartments
+  resources :apartments
 
   get '/home', to: 'pages#home'
   get '/hallparis', to: 'pages#hallparis'

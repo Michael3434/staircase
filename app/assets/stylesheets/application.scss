@@ -10,7 +10,36 @@
 @import "calendar";
 @import "gsdk-base";
 @import "home";
-@import "sms";
+
+// Override bootstrap variables
+@import "variables";
+
+@import "sms/*";
+@import "email/*";
+
+.generate-message-button {
+  .btn {
+    background-color: #E64A19;
+    margin: 10px 10px 10px 0px;
+    color: white;
+    border-radius: 0px;
+    font-weight: 300;
+    font-size: 15px;
+  }
+}
+
+.hint {
+  font-style: italic;
+}
+
+textarea {
+  font-weight: 300;
+}
+
+.btn-lg {
+  padding: 13px 40px;
+  font-size: 18px;
+}
 
 #modifier {
     background: #E64A19 url(https://ssl.gstatic.com/s2/oz/images/quark/a7367650055ae3cf32ee3b7023c1ed88ic_create_wht_24dp.png) no-repeat center;

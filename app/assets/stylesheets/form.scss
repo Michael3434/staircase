@@ -10,11 +10,11 @@ select {
   -webkit-appearance: none;
 }
 
-.select:before {
+.select:before  {
   content:'\25bc';
   position: absolute;
   color: #82888a;
-  top: 40px;
+  top: 53px;
   right: 30px;
   transform: scale(0.84, 0.42);
 }

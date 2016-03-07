@@ -15,7 +15,7 @@
 //= require jquery_ujs
 //= require toastr
 //= require jquery-ui/datepicker
+//= require app.sms
 //= require_tree .
 
-
-
+// = require class/message_generator
