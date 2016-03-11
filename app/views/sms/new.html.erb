@@ -3,18 +3,18 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2 generate-message-button">
       <% generate_button.each do |button| %>
-      <button class="btn <%= button.parameterize %> "><%= button %></button>
+      <button class="btn <%= button.parameterize %> btn-secondary"><%= button %></button>
       <% end %>
     </div>
     <div class="col-md-8 col-md-offset-2">
-      <span class="hint">En cliquant sur un des buttons vous pouvez avoir un message près écris</span>
+      <div class="hint">En cliquant sur un des buttons vous pouvez avoir un message automatiquement écrit</div>
     </div>
   </div>
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <%= simple_form_for @sms, url: sms_new_path do |f| %>
         <%= f.input :content, label: false %>
-        <%= f.submit "Envoyer", id: "btn-submit" %>
+        <%= f.submit "Envoyer", id: "btn-submit", class: "btn btn-action" %>
     </div>
   </div>
   <div class="row">

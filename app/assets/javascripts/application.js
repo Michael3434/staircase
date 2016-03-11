@@ -10,12 +10,17 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require toastr
 //= require jquery-ui/datepicker
-//= require app.sms
+
+//= require app
+
+//= require_tree ./class
 //= require_tree .
 
-// = require class/message_generator
+//= require app.sms
+//= require app.email

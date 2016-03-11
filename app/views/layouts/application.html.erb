@@ -10,30 +10,17 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body ontouchstart class="public <%= controller_name %> <%= action_name %>"
+<body ontouchstart class="public <%= controller_name %> <%= action_name %>">
 
-  <% if !current_page?(hallparis_path) %>
-    <% if current_user %>
-      <%= render 'shared/navbar_login' %>
-      <% else %>
-      <%= render 'shared/navbar_logout' %>
-    <% end %>
-    <%= yield %>
-    <% else %>
-     <%= yield %>
+  <% if current_user %>
+    <%= render 'shared/navbar_login' %>
+  <% else %>
+    <%= render 'shared/navbar_logout' %>
   <% end %>
-    <%= render 'shared/message' %>
 
-<script>
+  <%= yield %>
 
-$(document).ready(function(){
-
-  toastr.options = {
-                      "positionClass": "toast-bottom-full-width"
-  }
-});
-
-</script>
+  <%= render 'shared/message' %>
 
 </body>
 </html>
