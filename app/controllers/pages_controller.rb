@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!, except: [:landing]
-  before_action :apartment_user?, except: [:landing]
 
   def home
     @comment = Comment.new
@@ -54,12 +53,6 @@ class PagesController < ApplicationController
   end
 
   private
-
-  def apartment_user?
-    if current_user.apartment_users.empty?
-      redirect_to new_apartment_path, notice: "Tell us where do you leave"
-    end
-  end
 
   def time_calendar
     strftime("%v")
