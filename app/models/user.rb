@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :comments
   has_many :messages
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_many :apartment_users, dependent: :destroy
   has_many :apartments, through: :apartment_users
   belongs_to :apartment, dependent: :destroy

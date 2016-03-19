@@ -12,7 +12,7 @@
   </div>
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <%= simple_form_for @email, url: email_new_path do |f| %>
+      <%= simple_form_for @email, url: email_index_path do |f| %>
         <%= f.input :content, label: false %>
         <%= f.submit "Envoyer", id: "btn-submit", class: "btn btn-action" %>
     </div>
