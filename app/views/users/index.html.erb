@@ -1,0 +1,32 @@
+<div class="container">
+  <h3 class="text-left page-header">Utilisateurs <small>(<%= @users.count %>)</small></h3>
+  <div class="space-top-2 space-2">
+    <%= link_to icon("plus-circle", "Ajouter un utilisateur"), "#" %>
+  </div>
+  <%= simple_form_for @user, url: new_user_path  do |f| %>
+    <%= f.input :first_name, label: "Prénom" %>
+    <%= f.input :last_name, label: "Nom"  %>
+    <%= f.input :email, label: "Email"  %>
+    <%= f.input :phone_number, label: "Numéro de tel"  %>
+  <% end %>
+  <table class="table table-hover" data-behavior="autoclick">
+      <tr>
+        <th>Id</th>
+        <th>Inscrit le</th>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th>Téléphone</th>
+      </tr>
+
+      <% @users.each do |user| %>
+      <%= content_tag :tr, id: "users_#{user.id}", data: { user_id: user.id } do %>
+        <td><%= user.id %></td>
+        <td><%= I18n.l user.created_at.to_date, format: :short %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= format_phone(user.phone_number) %></td>
+      <% end %>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -15,6 +15,7 @@
 @import "variables";
 
 @import "sms/*";
+@import "shared/*";
 @import "email/*";
 @import "button";
 
@@ -137,8 +138,13 @@ body{
 }
 
 a {
-  color: white;
   text-decoration: none;
+  color: #A04E34;
+  font-size: 14px;
+}
+
+a:hover {
+  color: #883216;
 }
 
 .blurred-container{
