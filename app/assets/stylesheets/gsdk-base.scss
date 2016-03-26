@@ -334,8 +334,8 @@ input.ct-red + span.switch-left, input.ct-red + span + label + span.switch-right
 .form-control {
     background-color: #FFFFFF;
     border: 1px solid #E3E3E3;
-    border-radius: 4px;
     box-shadow: none;
+    border-radius: 0px;
     color: #444444;
     height: 38px;
     padding: 6px 16px;

@@ -5,4 +5,10 @@ module UsersHelper
       [group, group]
     end
   end
+
+  def floors_collection
+    (1..8).each do |n|
+      [n, n]
+    end
+  end
 end

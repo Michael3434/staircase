@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :apartments
   resources :sms
   resources :email
+  scope "/admin" do
+    resources :users
+  end
 
   get '/home', to: 'pages#home'
   get '/hallparis', to: 'pages#hallparis'

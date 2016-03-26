@@ -23,4 +23,14 @@ module ApplicationHelper
   def generate_button
     ["Plombier", "Electricien", "Coupure d'eau", "Coupure d'électricité"]
   end
+
+  def format_phone(phone)
+    return phone unless phone
+    if phone =~ /^(06|07|01)/
+      phone.scan(/../).join(" ")
+    else
+      phone
+    end
+    .gsub(" ", "&nbsp;").html_safe
+  end
 end

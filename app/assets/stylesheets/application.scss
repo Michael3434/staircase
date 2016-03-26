@@ -15,7 +15,9 @@
 @import "variables";
 
 @import "sms/*";
+@import "shared/*";
 @import "email/*";
+@import "admin/*";
 @import "button";
 
 
@@ -49,14 +51,6 @@
     transform: rotateY(0deg);
     top: 63px;
     right: 49px;
-}
-
-
-#user_email, #user_password {
-    border-radius: 0;
-    border: none;
-    border-bottom: 2px solid #F4511E;
-    background-color: transparent;
 }
 
 .message_info {
@@ -137,8 +131,13 @@ body{
 }
 
 a {
-  color: white;
   text-decoration: none;
+  color: #A04E34;
+  font-size: 14px;
+}
+
+a:hover {
+  color: #883216;
 }
 
 .blurred-container{

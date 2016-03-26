@@ -1,0 +1,16 @@
+<p>Bonjour <%= @user.first_name %>,</p>
+
+<p>Nous sommes très heureux de vous accueillir dans la communauté Staircaze de votre immeuble du 12, rue Jean Richepin <p>
+<p> Pour vous connecter, vous pouvez utiliser : </p>
+<p> Identifiant : <%= @user.email %> </p>
+<p> Mot de passe : <%= @user.password %> </p>
+<p> Vos données resteront strictement confidentielles. Seule la gardienne (Mme Mathias) peut vous envoyer des informations relatives à la vie de l’immeuble. </p>
+<p> Staircaze est le premier réseau social privé entièrement dédié à la vie de votre immeuble. Pour le moment, le service est en version bêta gratuitement dans l’immeuble, avec une première fonctionnalité d’envoi de message SMS / email pour la gardienne de l’immeuble. A long terme, propriétaire, locataire, gardien(ne) ou property manager: Staircaze vous permettra de communiquer facilement avec l'ensemble des parties prenantes, d'échanger des services ponctuels, de régler rapidement les imprévus ou problèmes récurrents dans les parties communes et de participer aux rendez-vous qui animent la vie de votre immeuble.
+</p>
+
+<p>Nous vous  souhaitons une excellente journée. </p>
+<p>N’hésitez pas à nous envoyer vos commentaires à l’adresse suivante : equipe@staircaze.com</p>
+
+<p> <b> L’équipe Staircaze : Alexis, Michael et Rémy (votre voisin du 6ème) </b></p>
+
+<%= render "signature" %>
