@@ -11,7 +11,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body ontouchstart class="public <%= controller_name %> <%= action_name %>">
-
+  <%= render 'shared/message' %>
   <% if current_user %>
     <%= render 'shared/navbar_login' %>
   <% else %>
@@ -19,8 +19,6 @@
   <% end %>
 
   <%= yield %>
-
-  <%= render 'shared/message' %>
 
 </body>
 </html>

@@ -1,14 +1,40 @@
 <div class="container">
   <h3 class="text-left page-header">Utilisateurs <small>(<%= @users.count %>)</small></h3>
-  <div class="space-top-2 space-2">
-    <%= link_to icon("plus-circle", "Ajouter un utilisateur"), "#" %>
+  <div class="row">
+    <%= simple_form_for @user, url: users_path  do |f| %>
+      <div class="col-md-4 col-sm-6 col-xs-6">
+        <%= f.input :first_name, label: "Prénom" %>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-6">
+        <%= f.input :last_name, label: "Nom"  %>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-6">
+        <%= f.input :email, label: "Email"  %>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-6">
+        <%= f.input :phone_number, label: "Numéro de tel"  %>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-6">
+        <%= f.input :user_floor, collection: floors_collection, include_blank: false, label: "Etage"  %>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-6">
+        <%= f.input :apt_reference, include_blank: false, placeholder: "À droite de l'ascenseur...", label: "Reference appartment"  %>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-6">
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.input :receive_sms, as: :boolean, checked_value: true, unchecked_value: false %>
+          </div>
+          <div class="col-md-6">
+            <%= f.input :receive_email, as: :boolean, checked_value: true, unchecked_value: false %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-6">
+        <%= f.submit 'Créer l\'utilisateur', class: "btn btn-action", id: "user_submit" %>
+      </div>
+    <% end %>
   </div>
-  <%= simple_form_for @user, url: new_user_path  do |f| %>
-    <%= f.input :first_name, label: "Prénom" %>
-    <%= f.input :last_name, label: "Nom"  %>
-    <%= f.input :email, label: "Email"  %>
-    <%= f.input :phone_number, label: "Numéro de tel"  %>
-  <% end %>
   <table class="table table-hover" data-behavior="autoclick">
       <tr>
         <th>Id</th>

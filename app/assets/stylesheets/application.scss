@@ -17,6 +17,7 @@
 @import "sms/*";
 @import "shared/*";
 @import "email/*";
+@import "admin/*";
 @import "button";
 
 
@@ -50,14 +51,6 @@
     transform: rotateY(0deg);
     top: 63px;
     right: 49px;
-}
-
-
-#user_email, #user_password {
-    border-radius: 0;
-    border: none;
-    border-bottom: 2px solid #F4511E;
-    background-color: transparent;
 }
 
 .message_info {
